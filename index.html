@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tjay Earl | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="hero">
+    <nav>
+      <h1>Tjay Earl</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="toggle-dark">Toggle Dark Mode</button>
+    </nav>
+    <div class="hero-content">
+      <img src="images/your-photo.jpg" alt="Tjay Earl">
+      <h2>Hi, I'm Tjay Earl</h2>
+      <p>Aspiring Software Engineer</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate junior developer currently learning HTML, CSS, and JavaScript. I studied software engineering at Moringa School. I enjoy solving problems, building websites, and gaming in my free time. Fun fact: I love vintage cars!</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Brain Freeze</h3>
+      <p>An ice cream shop website built with HTML, CSS, and JavaScript.</p>
+      <a href="https://github.com/tjayearl/Brain-freeze" target="_blank">GitHub</a>
+      <a href="#">Live Demo</a>
+    </div>
+    <div class="project">
+      <h3>Machines</h3>
+      <p>A car platform for buying and selling vehicles. Built using HTML, CSS, JavaScript, and JSON Server.</p>
+      <a href="https://github.com/tjayearl/Machines" target="_blank">GitHub</a>
+      <a href="#">Live Demo</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p><strong>Technical Skills:</strong> HTML, CSS, JavaScript, Python</p>
+    <p><strong>Soft Skills:</strong> Teamwork, Communication, Creativity</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
+    <p>Phone: 0115633640</p>
+    <p>GitHub: <a href="https://github.com/tjayearl" target="_blank">github.com/tjayearl</a></p>
+  </section>
+
+  <section id="extras">
+    <h2>Extras</h2>
+    <ul>
+      <li><a href="TjayEarlCV.pdf" download>Download My CV</a></li>
+      <li>Testimonials coming soon...</li>
+      <li>Blog section coming soon...</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tjay Earl. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('toggle-dark');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Smooth Scrolling (Optional, supported in modern browsers)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
