@@ -67,4 +67,69 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // ========== TESTIMONIALS SECTION ==========
+  const testimonialForm = document.getElementById('testimonial-form');
+  const testimonialList = document.getElementById('testimonial-list');
+
+  // Function to generate star icons from a rating number
+  const generateStars = (rating) => {
+    let starsHTML = '';
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        starsHTML += '<i class="fas fa-star"></i>';
+      } else {
+        // This part is optional if you only want to show filled stars
+        // starsHTML += '<i class="far fa-star"></i>'; // Font Awesome regular star
+      }
+    }
+    return starsHTML;
+  };
+
+  // Function to create and display a testimonial card
+  const addTestimonial = (name, rating, comment) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+
+    card.innerHTML = `
+      <div class="testimonial-header">
+        <span class="testimonial-name">${name}</span>
+        <div class="testimonial-rating">
+          ${generateStars(rating)}
+        </div>
+      </div>
+      <p class="testimonial-comment">"${comment}"</p>
+    `;
+    testimonialList.appendChild(card);
+  };
+
+  // Load testimonials from localStorage
+  const loadTestimonials = () => {
+    const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+    // Clear default testimonial if there are saved ones
+    if (testimonials.length > 0) {
+      testimonialList.innerHTML = '';
+    }
+    testimonials.forEach(t => addTestimonial(t.name, t.rating, t.comment));
+  };
+
+  // Handle form submission
+  testimonialForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('client-name').value;
+    const comment = document.getElementById('client-comment').value;
+    const rating = document.querySelector('.star-rating input:checked').value;
+
+    addTestimonial(name, rating, comment);
+
+    // Save to localStorage
+    const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+    testimonials.push({ name, rating, comment });
+    localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+    testimonialForm.reset();
+  });
+
+  // Initial load
+  loadTestimonials();
 });

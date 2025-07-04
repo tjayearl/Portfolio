@@ -278,19 +278,133 @@ main > section {
 /* Testimonials        */
 /* ------------------- */
 #testimonials {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .dark-mode #testimonials {
-  background: rgba(30, 30, 30, 0.6);
+  /* No dark background for this section to keep cards distinct */
 }
 
-blockquote {
-  margin-bottom: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  text-align: left;
+}
+
+.dark-mode .testimonial-card {
+  background: rgba(30, 40, 60, 0.85);
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.testimonial-rating .fa-star {
+  color: #ffc700; /* Gold color for stars */
+}
+
+.testimonial-comment {
   font-style: italic;
+  color: #555;
+}
+
+.dark-mode .testimonial-comment {
+  color: #ccc;
+}
+
+/* Testimonial Form */
+#testimonial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.dark-mode #testimonial-form {
+  border-top-color: #444;
+}
+
+#testimonial-form input,
+#testimonial-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dark-mode #testimonial-form input,
+.dark-mode #testimonial-form textarea {
+  background: #2a3b52;
+  border-color: #555;
+  color: #f0f0f0;
+}
+
+#testimonial-form button {
+  padding: 12px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#testimonial-form button:hover {
+  background: #0056b3;
+}
+
+/* Star Rating System */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse; /* This is the key trick */
+  justify-content: center;
+  gap: 5px;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: color 0.2s;
+}
+
+/* Add star content using a pseudo-element */
+.star-rating label::before {
+  content: '\f005'; /* Font Awesome solid star */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+  color: #ffc700;
 }
 
 /* ------------------- */
