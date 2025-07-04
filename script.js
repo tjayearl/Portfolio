@@ -1,53 +1,70 @@
-// ========== THEME TOGGLE (SLIDER STYLE) ==========
-const toggleTheme = document.getElementById('toggle-dark');
-
-toggleTheme.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-
-  // Optional: save preference in localStorage
-  const isDark = document.body.classList.contains('dark-mode');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
-
-// Load saved theme
+// Wait for the DOM to be fully loaded before running scripts
 window.addEventListener('DOMContentLoaded', () => {
+  // ========== THEME TOGGLE ==========
+  const toggleThemeBtn = document.getElementById('toggle-theme');
+
+  // Function to apply the theme
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleThemeBtn.checked = true;
+    } else {
+      document.body.classList.remove('dark-mode');
+      toggleThemeBtn.checked = false;
+    }
+  };
+
+  // Load saved theme from localStorage
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleTheme.checked = true;
-  }
-});
-
-// ========== NAVBAR HIDE ON SCROLL ==========
-let prevScrollPos = window.pageYOffset;
-const navbar = document.querySelector('nav');
-
-window.addEventListener('scroll', () => {
-  const currentScrollPos = window.pageYOffset;
-
-  if (prevScrollPos > currentScrollPos || currentScrollPos < 100) {
-    navbar.style.top = "0";
+  if (savedTheme) {
+    applyTheme(savedTheme);
   } else {
-    navbar.style.top = "-100px";
+    // Optional: Check for user's system preference if no theme is saved
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
   }
 
-  prevScrollPos = currentScrollPos;
-});
+  // Event listener for the theme toggle
+  toggleThemeBtn.addEventListener('change', () => {
+    const isDark = toggleThemeBtn.checked;
+    document.body.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 
-// ========== SCROLL TO TOP BUTTON ==========
-const scrollBtn = document.getElementById('scrollTopBtn');
+  // ========== NAVBAR HIDE ON SCROLL ==========
+  let prevScrollPos = window.pageYOffset;
+  const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) {
-    scrollBtn.style.display = 'block';
-  } else {
-    scrollBtn.style.display = 'none';
-  }
-});
+  window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+    if (prevScrollPos > currentScrollPos || currentScrollPos < 10) {
+      navbar.style.top = "0";
+    } else {
+      // Hide completely by using the navbar's actual height
+      navbar.style.top = `-${navbar.offsetHeight + 10}px`;
+    }
+    prevScrollPos = currentScrollPos;
+  });
 
-scrollBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+  // ========== SCROLL TO TOP BUTTON ==========
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ========== PROJECT FILTERS ==========
+  const filterButtons = document.querySelectorAll('.project-filters button');
+  const projects = document.querySelectorAll('.project-card');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.dataset.filter;
+      projects.forEach(card => {
+        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+      });
+    });
   });
 });

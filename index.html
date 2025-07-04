@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-  <div class="sidebar">
+  <nav class="navbar">
     <h1 class="logo">Tjay Earl</h1>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -17,16 +17,18 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="social-icons">
-      <a href="#" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
-      <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
+    <div class="nav-actions">
+      <div class="social-icons">
+        <a href="#" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
+        <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
+      </div>
+      <label for="toggle-theme" class="theme-switch">
+        <input type="checkbox" id="toggle-theme">
+        <span class="slider"></span>
+      </label>
     </div>
-    <label for="toggle-theme" class="theme-switch">
-      <input type="checkbox" id="toggle-theme">
-      <span class="slider"></span>
-    </label>
-  </div>
+  </nav>
 
   <header id="hero">
     <div class="hero-container">
@@ -114,35 +116,6 @@
 
   <button id="scrollTopBtn">↑</button>
 
-  <script>
-    const toggleThemeBtn = document.getElementById('toggle-theme');
-    // Use the 'change' event for checkboxes for better accessibility and semantics
-    toggleThemeBtn.addEventListener('change', () => {
-      // Toggle the class based on the checkbox's checked state
-      document.body.classList.toggle('dark-mode', toggleThemeBtn.checked);
-    });
-
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    const filterButtons = document.querySelectorAll('.project-filters button');
-    const projects = document.querySelectorAll('.project-card');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Handle active button state
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Filter projects
-        const category = btn.dataset.filter;
-        projects.forEach(card => {
-          card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
