@@ -186,6 +186,23 @@ input:checked + .slider:before {
   max-width: 600px;
 }
 
+.hero-text .cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero-text .cta-button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
 /* ------------------- */
 /* Main Content Sections */
 /* ------------------- */
