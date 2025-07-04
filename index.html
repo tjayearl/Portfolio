@@ -22,7 +22,10 @@
       <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
       <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
     </div>
-    <button id="toggle-theme">Toggle Theme</button>
+    <label for="toggle-theme" class="theme-switch">
+      <input type="checkbox" id="toggle-theme">
+      <span class="slider"></span>
+    </label>
   </div>
 
   <header id="hero">
@@ -113,8 +116,10 @@
 
   <script>
     const toggleThemeBtn = document.getElementById('toggle-theme');
-    toggleThemeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
+    // Use the 'change' event for checkboxes for better accessibility and semantics
+    toggleThemeBtn.addEventListener('change', () => {
+      // Toggle the class based on the checkbox's checked state
+      document.body.classList.toggle('dark-mode', toggleThemeBtn.checked);
     });
 
     const scrollBtn = document.getElementById('scrollTopBtn');
