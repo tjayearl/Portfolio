@@ -18,9 +18,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="https://github.com/tjayearl" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
     </div>
     <button id="toggle-theme">Toggle Theme</button>
   </div>
@@ -44,7 +44,7 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="project-filters">
-        <button data-filter="all">All</button>
+        <button data-filter="all" class="active">All</button>
         <button data-filter="web">Web</button>
         <button data-filter="tools">Tools</button>
       </div>
@@ -53,7 +53,7 @@
           <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" />
           <h3>Brain Freeze</h3>
           <p>Ice cream shop website.</p>
-          <a href="https://brain-freeze.vercel.app" target="_blank">Live Preview</a>
+          <a href="https://brain-freeze-nine.vercel.app" target="_blank" rel="noopener noreferrer">Live Preview</a>
         </div>
         <div class="project-card" data-category="tools">
           <img src="images/todolist.png" alt="To-Do List Screenshot" />
@@ -93,7 +93,7 @@
     <section id="contact">
       <h2>Contact Me</h2>
       <p>Email: <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
-      <p>Phone: 0115633640</p>
+      <p>Phone: <a href="tel:0115633640">0115633640</a></p>
     </section>
 
     <section id="extras">
@@ -127,6 +127,11 @@
     const projects = document.querySelectorAll('.project-card');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
+        // Handle active button state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter projects
         const category = btn.dataset.filter;
         projects.forEach(card => {
           card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
