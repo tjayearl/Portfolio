@@ -118,8 +118,21 @@
 
     <section id="contact">
       <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
-      <p>Phone: <a href="tel:0115633640">0115633640</a></p>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>I'm open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:0115633640">0115633640</a></p>
+        </div>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+          <p id="form-status"></p>
+        </form>
+      </div>
     </section>
 
     <section id="extras">

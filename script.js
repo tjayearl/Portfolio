@@ -132,4 +132,34 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Initial load
   loadTestimonials();
+
+  // ========== CONTACT FORM (FORMSPREE) ==========
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    try {
+      const response = await fetch(event.target.action, {
+        method: contactForm.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      });
+      if (response.ok) {
+        formStatus.textContent = "Thanks for your submission!";
+        formStatus.style.color = 'green';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = "Oops! There was a problem submitting your form.";
+        formStatus.style.color = 'red';
+      }
+    } catch (error) {
+      formStatus.textContent = "Oops! There was a problem submitting your form.";
+      formStatus.style.color = 'red';
+    }
+  }
+  contactForm.addEventListener("submit", handleSubmit);
 });
