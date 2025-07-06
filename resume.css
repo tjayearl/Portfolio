@@ -17,13 +17,39 @@ body {
   background: white;
   padding: 4rem 0; /* Vertical padding */
   box-sizing: border-box;
+  position: relative; /* Positioning context for the back button */
+}
+
+/* Back to Portfolio Button */
+.back-to-portfolio-btn {
+  display: inline-flex; /* Use flex to align icon and text */
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Match button font */
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+.back-to-portfolio-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
 }
 
 /* Inner wrapper to constrain content width for readability */
 .resume-content {
   max-width: 850px;
   margin: 0 auto;
-  padding: 0 2rem; /* Horizontal padding for smaller screens */
+  padding: 0 2rem; /* Horizontal padding */
 }
 
 /* Headings with the 'Baloo 2' font */
@@ -119,4 +145,20 @@ li {
 
 .project-item h4 a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .back-to-portfolio-btn {
+    position: static; /* Remove absolute positioning on mobile */
+    display: block; /* Make it a block to center it */
+    width: fit-content; /* Don't take full width */
+    margin: 0 auto 2rem; /* Center it and add space below */
+  }
+
+  .resume-container {
+    padding-top: 2rem; /* Reduce top padding to make space for the static button */
+  }
+
+  .resume-content { padding: 0 1rem; }
 }
