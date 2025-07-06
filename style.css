@@ -208,7 +208,7 @@ input:checked + .slider:before {
 /* Main Content Sections */
 /* ------------------- */
 main > section {
-  padding: 60px 40px;
+  padding: 80px 40px;
 }
 
 /* ------------------- */
@@ -599,6 +599,7 @@ main > section {
 /* ------------------- */
 #extras {
   text-align: center;
+  padding: 80px 40px;
 }
 
 .extras-container {
@@ -638,10 +639,9 @@ main > section {
 /* ------------------- */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 80px 40px 20px; /* Increased top padding for consistent spacing */
   background: #007bff;
   color: white;
-  margin-top: 50px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
