@@ -90,13 +90,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const addTestimonial = (name, rating, comment) => {
     const card = document.createElement('div');
     card.className = 'testimonial-card';
-
+    
+    const ratingHTML = rating ? `
+      <div class="testimonial-rating">
+        ${generateStars(rating)}
+      </div>
+    ` : '';
+    
     card.innerHTML = `
       <div class="testimonial-header">
         <span class="testimonial-name">${name}</span>
-        <div class="testimonial-rating">
-          ${generateStars(rating)}
-        </div>
+        ${ratingHTML}
       </div>
       <p class="testimonial-comment">"${comment}"</p>
     `;
@@ -118,8 +122,9 @@ window.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const name = document.getElementById('client-name').value;
     const comment = document.getElementById('client-comment').value;
-    const rating = document.querySelector('.star-rating input:checked').value;
-
+    const ratingInput = document.querySelector('.star-rating input:checked');
+    const rating = ratingInput ? ratingInput.value : null;
+    
     addTestimonial(name, rating, comment);
 
     // Save to localStorage
@@ -139,6 +144,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const confirmed = window.confirm("Are you sure you want to send this message?");
+    if (!confirmed) {
+      // If the user clicks "Cancel", we stop the function from running.
+      return;
+    }
+
     const data = new FormData(event.target);
     try {
       const response = await fetch(event.target.action, {
