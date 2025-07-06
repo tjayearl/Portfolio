@@ -1,0 +1,84 @@
+/* Import fonts from the main portfolio */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Poppins:wght@400;700&display=swap');
+
+/* Base styles to match portfolio */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  color: #1a1a1a;
+  line-height: 1.6;
+  /* Removed body padding to allow container to be full-width */
+}
+
+/* Main container with portfolio's card styling */
+.resume-container {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  padding: 4rem 0; /* Vertical padding */
+  box-sizing: border-box;
+}
+
+/* Inner wrapper to constrain content width for readability */
+.resume-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Horizontal padding for smaller screens */
+}
+
+/* Headings with the 'Baloo 2' font */
+h1, h2, h3 {
+  font-family: 'Baloo 2', cursive;
+  color: #0056b3; /* A slightly darker blue for contrast */
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400; /* Poppins regular for subtitle */
+  font-family: 'Poppins', sans-serif;
+  color: #555;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Contact info styling */
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-weight: bold;
+  color: #333;
+}
