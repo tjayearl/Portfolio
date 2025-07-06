@@ -195,20 +195,69 @@ li {
 
 /* Print-specific styles for clean PDF output */
 @media print {
+  /* --- Print Reset & Base --- */
   body {
-    /* Reset background for printing */
     background: #fff !important;
     color: #000 !important;
+    font-size: 10pt;
+    line-height: 1.3;
   }
 
+  /* --- Hide UI Elements --- */
   .resume-actions {
-    /* Hide buttons so they don't appear in the PDF */
     display: none;
   }
 
+  /* --- Layout & Spacing --- */
   .resume-container {
-    padding: 0;
+    padding: 1cm 0; /* Give some margin to the printed page */
     box-shadow: none;
+    min-height: 0;
+  }
+
+  .resume-content {
+    max-width: 18cm; /* A4-friendly width */
+    padding: 0;
+  }
+
+  .resume-header {
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom-color: #ccc;
+  }
+
+  .resume-profile-img {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+    border-color: #ccc;
+    box-shadow: none;
+  }
+
+  /* --- Typography --- */
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; color: #000 !important; }
+  h2 { font-size: 1.2rem; color: #333 !important; }
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-color: #ccc !important;
+    color: #000 !important;
+  }
+  p, li { margin-bottom: 0.5rem; }
+
+  /* --- Section-specific adjustments --- */
+  .contact-info { margin-bottom: 1rem; gap: 0.5rem 1.5rem; }
+  .contact-info a { color: #333 !important; }
+  .project-item { margin-bottom: 1rem; page-break-inside: avoid; }
+  .project-item h4 { color: #000 !important; }
+  .project-item h4 a { display: none; /* Hide non-clickable links */ }
+
+  /* Ensure dark mode backgrounds are reset */
+  .dark-mode, .dark-mode .resume-container {
+    background: #fff !important;
   }
 }
 
@@ -218,11 +267,6 @@ li {
 .dark-mode {
   background: linear-gradient(to right, #141e30, #243b55);
   color: #f0f0f0;
-}
-
-.dark-mode .resume-container,
-.dark-mode.print .resume-container {
-  background: rgba(20, 30, 48, 0.95);
 }
 
 .dark-mode .resume-container {
