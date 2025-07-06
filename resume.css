@@ -20,26 +20,33 @@ body {
   position: relative; /* Positioning context for the back button */
 }
 
-/* Back to Portfolio Button */
-.back-to-portfolio-btn {
-  display: inline-flex; /* Use flex to align icon and text */
-  align-items: center;
-  gap: 8px;
+.resume-actions {
   position: absolute;
   top: 2rem;
   left: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+/* Shared styles for buttons in the resume header */
+.back-to-portfolio-btn, .download-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px;
   background: #007bff;
   color: white;
   text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
-  font-family: 'Poppins', sans-serif; /* Match button font */
+  font-family: 'Poppins', sans-serif;
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
-  z-index: 10;
+  border: none; /* For button element */
+  cursor: pointer;
 }
 
-.back-to-portfolio-btn:hover {
+.back-to-portfolio-btn:hover, .download-pdf-btn:hover {
   background: #0056b3;
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
@@ -167,11 +174,11 @@ li {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  .back-to-portfolio-btn {
+  .resume-actions {
     position: static; /* Remove absolute positioning on mobile */
-    display: block; /* Make it a block to center it */
-    width: fit-content; /* Don't take full width */
-    margin: 0 auto 2rem; /* Center it and add space below */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
   }
 
   .resume-container {
@@ -186,12 +193,36 @@ li {
   }
 }
 
+/* Print-specific styles for clean PDF output */
+@media print {
+  body {
+    /* Reset background for printing */
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .resume-actions {
+    /* Hide buttons so they don't appear in the PDF */
+    display: none;
+  }
+
+  .resume-container {
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
 /* ------------------- */
 /* Dark Mode Styles    */
 /* ------------------- */
 .dark-mode {
   background: linear-gradient(to right, #141e30, #243b55);
   color: #f0f0f0;
+}
+
+.dark-mode .resume-container,
+.dark-mode.print .resume-container {
+  background: rgba(20, 30, 48, 0.95);
 }
 
 .dark-mode .resume-container {
