@@ -158,6 +158,15 @@ input:checked + .slider:before {
 /* ------------------- */
 /* Hero Section        */
 /* ------------------- */
+header#hero {
+  position: relative;
+  color: white; /* Make all text in this section white for readability */
+  background: 
+    linear-gradient(rgba(20, 30, 48, 0.7), rgba(20, 30, 48, 0.7)), /* Dark overlay for contrast */
+    url('images/Dev.jpg') no-repeat center center/cover;
+  /* The padding-top is already handled by the 'header' selector */
+}
+
 .hero-container {
   display: flex;
   align-items: center;
@@ -165,6 +174,8 @@ input:checked + .slider:before {
   padding: 100px 30px 50px;
   gap: 30px;
   flex-wrap: wrap;
+  position: relative; /* Ensure content is on top of any pseudo-elements */
+  z-index: 2;
 }
 
 .hero-container .profile-img {
@@ -184,6 +195,11 @@ input:checked + .slider:before {
 
 .hero-container .hero-text {
   max-width: 600px;
+}
+
+.hero-text h2, .hero-text p {
+  /* Add text-shadow for better readability on the background image */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {

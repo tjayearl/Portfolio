@@ -31,6 +31,23 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
+  // ========== HERO IMAGE SCROLL ANIMATION ==========
+  const heroImg = document.querySelector('.hero-container .profile-img');
+  // Make sure the element exists before adding an event listener
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      // The animation will happen over the first 500-800 pixels of scrolling.
+      // We use Math.max to set a minimum size/opacity so it doesn't disappear completely.
+      const scaleValue = Math.max(0.6, 1 - scrollY / 800);
+      const opacityValue = Math.max(0.2, 1 - scrollY / 500);
+
+      // Apply the transform and opacity. The CSS transition will smooth it out.
+      heroImg.style.transform = `scale(${scaleValue})`;
+      heroImg.style.opacity = opacityValue;
+    }, { passive: true }); // Use passive listener for better scroll performance
+  }
+
   // ========== NAVBAR HIDE ON SCROLL ==========
   let prevScrollPos = window.pageYOffset;
   const navbar = document.querySelector('.navbar');
