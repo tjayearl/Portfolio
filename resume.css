@@ -185,3 +185,44 @@ li {
     text-align: center;
   }
 }
+
+/* ------------------- */
+/* Dark Mode Styles    */
+/* ------------------- */
+.dark-mode {
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: #f0f0f0;
+}
+
+.dark-mode .resume-container {
+  background: rgba(20, 30, 48, 0.95);
+}
+
+.dark-mode h1 {
+  color: #f0f0f0;
+}
+
+.dark-mode h2 {
+  color: #ccc;
+}
+
+.dark-mode h3 {
+  color: #00aaff; /* A brighter blue for dark mode */
+  border-bottom-color: #00aaff;
+}
+
+.dark-mode .contact-info a {
+  color: #ccc;
+}
+
+.dark-mode .contact-info a:hover {
+  color: #00aaff;
+}
+
+.dark-mode .resume-header {
+  border-bottom-color: #444;
+}
+
+.dark-mode .project-item h4 {
+  color: #f0f0f0;
+}

@@ -59,5 +59,15 @@
       <p><strong>Moringa School</strong> - Software Engineering Bootcamp</p>
     </div>
   </div>
+  <script>
+    // IIFE to apply the theme from localStorage as soon as the body is available
+    // This ensures the correct theme is applied without a "flash" of the wrong one.
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
 </body>
 </html>
