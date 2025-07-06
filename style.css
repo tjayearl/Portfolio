@@ -186,7 +186,7 @@ input:checked + .slider:before {
   max-width: 600px;
 }
 
-.hero-text .cta-button {
+.cta-button {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
@@ -198,7 +198,7 @@ input:checked + .slider:before {
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
 }
 
-.hero-text .cta-button:hover {
+.cta-button:hover {
   background: #0056b3;
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
@@ -592,6 +592,21 @@ main > section {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+/* ------------------- */
+/* Extras Section      */
+/* ------------------- */
+#extras {
+  text-align: center;
+}
+
+.extras-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 /* ------------------- */
