@@ -160,22 +160,28 @@ input:checked + .slider:before {
 /* ------------------- */
 header#hero {
   position: relative;
-  color: white; /* Make all text in this section white for readability */
-  background: 
-    linear-gradient(rgba(20, 30, 48, 0.7), rgba(20, 30, 48, 0.7)), /* Dark overlay for contrast */
-    url('images/Dev.jpg') no-repeat center center/cover;
-  /* The padding-top is already handled by the 'header' selector */
+  /* The padding-top is handled by the 'header' selector to account for the navbar. */
+  /* This section is now full-width. */
 }
 
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 100px 30px 50px;
+  padding: 80px 40px; /* Adjusted vertical padding for a "long but not too long" feel */
   gap: 30px;
   flex-wrap: wrap;
   position: relative; /* Ensure content is on top of any pseudo-elements */
   z-index: 2;
+
+  /* New styles for the card effect */
+  color: white;
+  background: 
+    linear-gradient(rgba(20, 30, 48, 0.7), rgba(20, 30, 48, 0.7)), /* Dark overlay for contrast */
+    url('images/chills.jpg') no-repeat center center/cover;
+  border-radius: 0 0 25px 25px; /* Rounded bottom corners for a modern, full-width look */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  overflow: hidden; /* Important for border-radius on background images */
 }
 
 .hero-container .profile-img {
@@ -689,7 +695,7 @@ footer {
   .hero-container {
     flex-direction: column-reverse;
     text-align: center;
-    padding-top: 30px;
+    padding: 50px 20px; /* Adjusted padding for mobile */
   }
 
   .projects-container {
