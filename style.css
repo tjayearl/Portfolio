@@ -168,8 +168,8 @@ header#hero {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 80px 40px; /* Adjusted vertical padding for a "long but not too long" feel */
-  gap: 30px;
+  padding: 100px 40px; /* Increased padding for a bigger feel */
+  gap: 40px;
   flex-wrap: wrap;
   position: relative; /* Ensure content is on top of any pseudo-elements */
   z-index: 2;
@@ -186,8 +186,8 @@ header#hero {
 
 .hero-container .profile-img {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 250px; /* Made image bigger */
+  height: 250px; /* Made image bigger */
   object-fit: cover;
   border: 4px solid #007bff;
   box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
@@ -231,6 +231,18 @@ header#hero {
 /* ------------------- */
 main > section {
   padding: 80px 40px;
+  /* Offset for the fixed navbar when scrolling to an anchor link */
+  scroll-margin-top: 80px;
+  /* Initial state for scroll animations */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* The state when the section becomes visible */
+main > section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ------------------- */
@@ -690,6 +702,11 @@ footer {
   main, header {
     /* Adjust padding for taller mobile navbar */
     padding-top: 180px;
+  }
+
+  main > section {
+    /* Adjust scroll margin for the taller mobile navbar */
+    scroll-margin-top: 180px;
   }
 
   .hero-container {

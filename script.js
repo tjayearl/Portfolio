@@ -190,4 +190,26 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
   contactForm.addEventListener("submit", handleSubmit);
+
+  // ========== SCROLL-IN ANIMATIONS FOR SECTIONS ==========
+  const sectionsToAnimate = document.querySelectorAll('main > section');
+
+  const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // When the section is in the viewport
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Stop observing the element so the animation doesn't re-run
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    // Trigger the animation when the section is 15% visible
+    threshold: 0.15
+  });
+
+  // Observe each section
+  sectionsToAnimate.forEach(section => {
+    sectionObserver.observe(section);
+  });
 });
