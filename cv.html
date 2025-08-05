@@ -8,12 +8,56 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     /* Add specific styles for CV if needed, otherwise it will inherit from resume.css */
-    .cv-container {
-      /* You can add specific container styles for the CV here if needed */
+    .cv-content .resume-header {
+      align-items: flex-start; /* Align items to the top */
+      justify-content: space-between; /* Push items to opposite ends */
     }
 
-    .cv-content {
-      /* Add CV content specific styling here, if different from resume */
+    .cv-content .contact-info {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      margin-bottom: 0; /* Override default margin */
+      text-align: right; /* Ensure text inside aligns right */
+      font-size: 0.9rem; /* Slightly smaller font for contact details */
+    }
+
+    /* Print-specific styles to ensure the CV fits on one page */
+    @media print {
+      body {
+        font-size: 9.5pt; /* Slightly smaller base font */
+        line-height: 1.25;
+      }
+
+      .cv-content .resume-header {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .cv-content h1 { font-size: 2rem; }
+      .cv-content h2 { font-size: 1.1rem; }
+      .cv-content .contact-info {
+        font-size: 0.85rem;
+        gap: 0.3rem;
+      }
+
+      .cv-content h3 {
+        font-size: 1.2rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .cv-content p, .cv-content li {
+        margin-bottom: 0.3rem;
+      }
+
+      .cv-content .project-item { margin-bottom: 0.6rem; }
+      .cv-content .project-item h4 { font-size: 1rem; margin-bottom: 0.1rem; }
+      .cv-content .project-item ul { margin-top: 0.2rem; }
+
+      /* Hide the final "References" line to save space */
+      .cv-content .references { display: none; }
     }
   </style>
 </head>
@@ -24,24 +68,20 @@
       <button id="download-btn" class="download-pdf-btn"><i class="fas fa-download"></i> Download PDF</button>
     </div>
     <div class="resume-content cv-content">  <!-- Reusing resume content, adding cv-content class -->
-      <header class="resume-header">  <!-- Reusing resume header for consistent styling -->
+      <header class="resume-header">
         <div class="header-text">
           <h1>Tjay Earl</h1>
           <h2>Aspiring Software Engineer</h2>
         </div>
+        <div class="contact-info">
+          <a href="mailto:iamtjayearl@gmail.com"><i class="fas fa-envelope"></i> iamtjayearl@gmail.com</a>
+          <a href="tel:0115633640"><i class="fas fa-phone"></i> 0115633640</a>
+          <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/tjayearl</a>
+          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> linkedin.com/in/your-profile</a>
+        </div>
       </header>
 
-      <section class="contact-info">
-        <a href="mailto:iamtjayearl@gmail.com"><i class="fas fa-envelope"></i> iamtjayearl@gmail.com</a>
-        <span>|</span>
-        <span>0115633640</span>
-        <span>|</span>
-        <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/tjayearl</a>
-        <span>|</span>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> linkedin.com/in/your-profile</a>
-      </section>
-
-      <section>
+      <section class="personal-profile">
         <h3>Personal Profile</h3>
         <p>Aspiring Software Engineer with a strong passion for building elegant and user-centric web applications. Proven ability to transform complex problems into intuitive digital experiences through clean and efficient code. Eager to contribute to collaborative projects and continue learning within a dynamic team.</p>
       </section>
@@ -91,7 +131,7 @@
         <p><strong>Moringa School</strong> | Software Engineering Bootcamp</p>
       </section>
 
-      <p>References available upon request.</p>
+      <p class="references">References available upon request.</p>
     </div>
   </div>
   <script>
