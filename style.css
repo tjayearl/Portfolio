@@ -246,6 +246,34 @@ main > section.visible {
 }
 
 /* ------------------- */
+/* About Me Section    */
+/* ------------------- */
+.about-container {
+  display: flex;
+  align-items: center; /* Vertically center items in the row */
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.about-text {
+  flex: 0.4; /* Squeeze text further */
+  min-width: 300px; /* Prevent text from getting too squished */
+}
+
+.about-image {
+  flex: 1.6; /* Give image the majority of the space */
+  max-width: 1000px; /* Allow image to grow even larger */
+  width: 100%; /* Ensure image is responsive within its flex container */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.03);
+}
+
+/* ------------------- */
 /* Projects            */
 /* ------------------- */
 .project-filters {
@@ -713,6 +741,11 @@ footer {
     flex-direction: column-reverse;
     text-align: center;
     padding: 50px 20px; /* Adjusted padding for mobile */
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
   }
 
   .projects-container {
