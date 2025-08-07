@@ -1,6 +1,18 @@
 /* Import fonts from the main portfolio */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Poppins:wght@400;700&display=swap');
 
+/* Keyframe Animations */
+@keyframes fallIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Base styles to match portfolio */
 body {
   font-family: 'Poppins', sans-serif;
@@ -63,10 +75,18 @@ body {
 .resume-header {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Push items to opposite sides */
   gap: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid #eee;
+}
+
+/* New wrapper for the main header content (image + text) */
+.resume-header-main {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .resume-profile-img {
@@ -115,12 +135,23 @@ p {
 
 /* Contact info styling */
 .contact-info {
-  text-align: center;
   margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem 2rem; /* row-gap column-gap */
+  text-align: center;
+}
+
+/* Styles for contact info when it's inside the new header */
+.resume-header .contact-info {
+  text-align: right;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0; /* Override default margin */
+  animation: fallIn 0.8s ease-out 0.3s forwards;
+  opacity: 0; /* Start hidden for animation */
 }
 
 .contact-info a {
