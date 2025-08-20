@@ -11,22 +11,27 @@
 <body>
   <nav class="navbar">
     <h1 class="logo">Tjay Earl</h1>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <div class="social-icons">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
-        <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
+    <button class="hamburger" id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="social-icons">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
+          <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
+        </div>
+        <label for="toggle-theme" class="theme-switch">
+          <input type="checkbox" id="toggle-theme">
+          <span class="slider"></span>
+        </label>
       </div>
-      <label for="toggle-theme" class="theme-switch">
-        <input type="checkbox" id="toggle-theme">
-        <span class="slider"></span>
-      </label>
     </div>
   </nav>
 
@@ -38,7 +43,7 @@
         <a href="resume.html" class="cta-button">View Resume</a>
         <a href="cv.html" class="cta-button">View CV</a>
       </div>
-      <img src="images/Tjay.jpg" alt="Tjay Earl" class="profile-img" />
+      <img src="images/tj.png" alt="Tjay Earl" class="profile-img" />
       <!-- Contact form has been moved back to the contact section -->
     </div>
   </header>
