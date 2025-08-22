@@ -227,6 +227,24 @@ window.addEventListener('DOMContentLoaded', () => {
       // When the section is in the viewport
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+
+        // If the visible section is the skills section, animate the circles
+        if (entry.target.id === 'skills') {
+          const skillCircles = document.querySelectorAll('.skill-circle-progress');
+          skillCircles.forEach(circle => {
+            const skillCard = circle.closest('.skill-card');
+            const level = skillCard.dataset.skillLevel;
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            
+            // Calculate the offset based on skill level
+            const offset = circumference - (level / 100) * circumference;
+            
+            // Set the offset to trigger the CSS transition
+            circle.style.strokeDashoffset = offset;
+          });
+        }
+
         // Stop observing the element so the animation doesn't re-run
         observer.unobserve(entry.target);
       }

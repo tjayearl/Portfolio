@@ -172,6 +172,46 @@ input:checked + .slider:before {
 }
 
 /* ------------------- */
+/* Button Hover Effect */
+/* ------------------- */
+.cta-button,
+.project-filters button,
+#testimonial-form button,
+#contact-form button {
+  position: relative; /* Needed for the pseudo-element */
+  overflow: hidden;   /* Hides the shimmer when it's outside */
+}
+
+#scrollTopBtn {
+  overflow: hidden; /* It already has position: fixed */
+}
+
+/* The shimmer pseudo-element */
+.cta-button::before,
+.project-filters button::before,
+#testimonial-form button::before,
+#contact-form button::before,
+#scrollTopBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.7s ease-in-out;
+}
+
+/* On hover, move the shimmer across the button */
+.cta-button:hover::before,
+.project-filters button:hover::before,
+#testimonial-form button:hover::before,
+#contact-form button:hover::before,
+#scrollTopBtn:hover::before {
+  left: 100%;
+}
+
+/* ------------------- */
 /* Hero Section        */
 /* ------------------- */
 header#hero {
@@ -424,40 +464,94 @@ main > section.visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px; /* Increased gap for larger cards */
   margin-top: 30px;
 }
 
 .skill-card {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  /* The card is now a transparent container for the circle and text */
+  background: transparent;
+  box-shadow: none;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  width: 130px;
+  width: 150px; /* Increased width to accommodate the larger circle */
 }
 
 .dark-mode .skill-card {
-  background: rgba(30, 40, 60, 0.8);
+  background: transparent;
 }
 
 .skill-card:hover {
   transform: translateY(-8px);
+  /* Hover effect is now on the circle container */
+}
+
+/* New Circle Container */
+.skill-circle-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .skill-circle-container {
+  background: rgba(30, 40, 60, 0.8);
+}
+
+.skill-card:hover .skill-circle-container {
   box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
 }
 
-.skill-card i {
-  font-size: 4rem;
-  transition: color 0.3s ease;
+/* SVG Styles for the animated circle */
+.skill-circle {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start the circle from the top */
+}
+
+.skill-circle-bg,
+.skill-circle-progress {
+  fill: none;
+  stroke-width: 10;
+}
+
+.skill-circle-bg {
+  stroke: #e6e6e6;
+}
+
+.dark-mode .skill-circle-bg {
+  stroke: #444;
+}
+
+.skill-circle-progress {
+  stroke: #007bff;
+  stroke-linecap: round;
+  /* Initial state for animation. Circumference = 2 * PI * 54 */
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292; /* Start fully "empty" */
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* Wrapper to center the icon on top of the SVG */
+.skill-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .skill-card span {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Specific Icon Colors on Hover */
@@ -466,18 +560,13 @@ main > section.visible {
 .skill-card:hover .fa-js-square { color: #F7DF1E; }
 .skill-card:hover .fa-python { color: #3776AB; }
 .skill-card:hover .fa-sass { color: #CC6699; }
-.skill-card:hover .fa-gem { color: #D91404; }
+.skill-card:hover .fa-gem { color: #D91404; } /* Ruby/Rails */
 
-/* TypeScript text-based icon */
-.text-icon {
+.skill-icon-wrapper i,
+.skill-icon-wrapper .text-icon {
   font-family: 'Baloo 2', cursive;
   font-size: 3.5rem;
   font-weight: 700;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   line-height: 1;
   transition: color 0.3s ease;
 }
