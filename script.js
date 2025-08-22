@@ -28,6 +28,30 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ========== TYPING EFFECT FOR HERO TEXT ==========
+  /**
+   * Simulates a typewriter effect on a given HTML element.
+   * @param {HTMLElement} element The DOM element to type into.
+   * @param {string} text The full text string to type.
+   * @param {number} speed The delay in milliseconds between each character.
+   * @param {function} [callback] An optional function to call after typing is complete.
+   */
+  function typeWriter(element, text, speed, callback) {
+    let i = 0;
+    element.textContent = ''; // Clear content initially to prevent flash of un-typed text
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type(); // Start the typing process
+  }
+
   // ========== THEME TOGGLE ==========
   const toggleThemeBtn = document.getElementById('toggle-theme');
 
@@ -58,6 +82,20 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('dark-mode', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
+
+  // Apply typing effect to hero section text
+  const heroTitle = document.querySelector('.hero-text h2');
+  const heroSubtitle = document.querySelector('.hero-text p');
+
+  if (heroTitle && heroSubtitle) {
+    const originalTitle = heroTitle.textContent;
+    const originalSubtitle = heroSubtitle.textContent;
+
+    // Start typing the title, then the subtitle after the title is done
+    typeWriter(heroTitle, originalTitle, 70, () => { // 70ms per character for the title
+      typeWriter(heroSubtitle, originalSubtitle, 50); // 50ms per character for the subtitle
+    });
+  }
 
   // ========== HERO IMAGE SCROLL ANIMATION ==========
   const heroImg = document.querySelector('.hero-container .profile-img');
