@@ -554,25 +554,18 @@ main > section.visible {
   font-size: 1.1rem;
 }
 
-/* Specific Icon Colors on Hover */
-.skill-card:hover .fa-html5 { color: #E34F26; }
-.skill-card:hover .fa-css3-alt { color: #1572B6; }
-.skill-card:hover .fa-js-square { color: #F7DF1E; }
-.skill-card:hover .fa-python { color: #3776AB; }
-.skill-card:hover .fa-sass { color: #CC6699; }
-.skill-card:hover .fa-gem { color: #D91404; } /* Ruby/Rails */
-
-.skill-icon-wrapper i,
-.skill-icon-wrapper .text-icon {
+/* Styling for the skill name text inside the circle */
+.skill-icon-wrapper span {
   font-family: 'Baloo 2', cursive;
-  font-size: 3.5rem;
+  font-size: 2rem; /* Adjusted font size to fit text */
   font-weight: 700;
   line-height: 1;
-  transition: color 0.3s ease;
+  color: #333; /* Default text color */
+  transition: color 0.3s ease; /* Smooth transition for color changes */
 }
 
-.skill-card:hover .text-icon {
-  color: #3178C6; /* TypeScript Blue */
+.dark-mode .skill-icon-wrapper span {
+  color: #f0f0f0; /* Text color in dark mode */
 }
 
 .other-skills {
