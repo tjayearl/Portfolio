@@ -364,7 +364,7 @@ main > section.visible {
 
 .projects-container {
   display: grid;
-  /* Forcing a 4-column layout on larger screens. */
+  /* Default to 4 columns for desktop */
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
@@ -393,6 +393,7 @@ main > section.visible {
 
 .project-card img {
   width: 100%;
+  display: block; /* Removes potential whitespace below the image */
   max-height: 180px;
   object-fit: cover;
   border-radius: 10px;
@@ -836,6 +837,13 @@ footer {
 /* ------------------- */
 /* Responsive Design   */
 /* ------------------- */
+@media screen and (max-width: 1024px) {
+  /* On tablets, show 2 project cards per row */
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hamburger {
     display: block;
@@ -890,6 +898,15 @@ footer {
     padding-top: 80px;
   }
 
+  h2 {
+    font-size: 1.8rem; /* Slightly smaller headings on mobile */
+  }
+
+  .hero-container .profile-img {
+    width: 200px; /* Smaller profile image on mobile */
+    height: 200px;
+  }
+
   main > section {
     /* Reset scroll margin */
     scroll-margin-top: 80px;
@@ -910,5 +927,14 @@ footer {
 
   .projects-container {
     grid-template-columns: 1fr;
+  }
+
+  .project-card img {
+    max-height: 200px; /* Allow images to be a bit taller in single-column view */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+  }
+
+  p {
+    font-size: 0.95rem; /* Ensure body text is very readable on mobile */
   }
 }
