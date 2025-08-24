@@ -155,6 +155,26 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ========== SKILL CARD HOVER EFFECT (NAME <-> PERCENTAGE) ==========
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  skillCards.forEach(card => {
+    const level = card.dataset.skillLevel;
+    const iconWrapper = card.querySelector('.skill-icon-wrapper');
+    const nameSpan = iconWrapper.querySelector('span');
+
+    if (level && iconWrapper && nameSpan) {
+      // 1. Add a class to the original name span for easier targeting.
+      nameSpan.classList.add('skill-name');
+
+      // 2. Create and append the percentage span, which will be shown on hover via CSS.
+      const percentageSpan = document.createElement('span');
+      percentageSpan.classList.add('skill-percentage');
+      percentageSpan.textContent = `${level}%`;
+      iconWrapper.appendChild(percentageSpan);
+    }
+  });
+
   // ========== TESTIMONIALS SECTION ==========
   const testimonialForm = document.getElementById('testimonial-form');
   const testimonialList = document.getElementById('testimonial-list');

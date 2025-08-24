@@ -556,13 +556,33 @@ main > section.visible {
 }
 
 /* Styling for the skill name text inside the circle */
-.skill-icon-wrapper span {
+.skill-icon-wrapper .skill-name,
+.skill-icon-wrapper .skill-percentage {
   font-family: 'Baloo 2', cursive;
   font-size: 2rem; /* Adjusted font size to fit text */
   font-weight: 700;
   line-height: 1;
   color: #333; /* Default text color */
-  transition: color 0.3s ease; /* Smooth transition for color changes */
+  transition: opacity 0.3s ease-in-out;
+  /* Position them on top of each other inside the wrapper */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* The percentage span is hidden by default */
+.skill-icon-wrapper .skill-percentage {
+  opacity: 0;
+}
+
+/* On hover, swap the opacity of the name and percentage */
+.skill-card:hover .skill-icon-wrapper .skill-name {
+  opacity: 0;
+}
+
+.skill-card:hover .skill-icon-wrapper .skill-percentage {
+  opacity: 1;
 }
 
 .dark-mode .skill-icon-wrapper span {
