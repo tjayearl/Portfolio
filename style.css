@@ -23,7 +23,7 @@ main, header {
 }
 
 .dark-mode {
-  background: linear-gradient(to right, #141e30, #243b55);
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
   color: #f0f0f0;
 }
 
@@ -52,7 +52,7 @@ h1, h2, h3 {
 }
 
 .dark-mode .navbar {
-  background: rgba(20, 30, 48, 0.95);
+  background: rgba(15, 23, 42, 0.85); /* Deeper navy, more transparent for blur */
 }
 
 .navbar .logo {
@@ -93,7 +93,7 @@ h1, h2, h3 {
   position: absolute;
   width: 0%;
   height: 2px;
-  background: #007bff;
+  background: #3b82f6;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -164,7 +164,7 @@ h1, h2, h3 {
 }
 
 input:checked + .slider {
-  background-color: #007bff;
+  background-color: #3b82f6;
 }
 
 input:checked + .slider:before {
@@ -245,14 +245,14 @@ header#hero {
   width: 250px; /* Made image bigger */
   height: 250px; /* Made image bigger */
   object-fit: cover;
-  border: 4px solid #007bff;
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+  border: 4px solid #3b82f6;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-container .profile-img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 45px rgba(0, 123, 255, 0.7);
+  box-shadow: 0 0 45px rgba(59, 130, 246, 0.7);
 }
 
 .hero-container .hero-text {
@@ -268,7 +268,7 @@ header#hero {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
-  background: #007bff;
+  background: #3b82f6;
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -277,9 +277,9 @@ header#hero {
 }
 
 .cta-button:hover {
-  background: #0056b3;
+  background: #2563eb;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
 /* ------------------- */
@@ -343,7 +343,7 @@ main > section.visible {
 .project-filters button {
   padding: 10px 20px;
   border: none;
-  background: #007bff;
+  background: #3b82f6;
   color: white;
   border-radius: 20px;
   font-weight: bold;
@@ -352,13 +352,13 @@ main > section.visible {
 }
 
 .project-filters button:hover {
-  background: #0056b3;
+  background: #2563eb;
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .project-filters button.active {
-  background: #0056b3;
+  background: #2563eb;
   transform: scale(1.05);
 }
 
@@ -381,12 +381,14 @@ main > section.visible {
 }
 
 .dark-mode .project-card {
-  background: rgba(30, 40, 60, 0.8);
+  /* Against a dark background, make cards pop more */
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #4a5568; /* Silver/gray border */
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 0 1px #3b82f6; /* Glow + Outline */
 }
 
 .project-card img {
@@ -408,7 +410,7 @@ main > section.visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 123, 255, 0.9);
+  background: rgba(59, 130, 246, 0.9);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -420,7 +422,7 @@ main > section.visible {
 }
 
 .dark-mode .project-details {
-  background: rgba(20, 30, 48, 0.95);
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .project-card:hover .project-details {
@@ -449,7 +451,7 @@ main > section.visible {
 
 .project-details a:hover {
   background: white;
-  color: #007bff;
+  color: #3b82f6;
 }
 
 /* ------------------- */
@@ -503,7 +505,7 @@ main > section.visible {
 }
 
 .dark-mode .skill-circle-container {
-  background: rgba(30, 40, 60, 0.8);
+  background: rgba(15, 23, 42, 0.7);
 }
 
 .skill-card:hover .skill-circle-container {
@@ -528,11 +530,11 @@ main > section.visible {
 }
 
 .dark-mode .skill-circle-bg {
-  stroke: #444;
+  stroke: #4a5568; /* Silver/gray accent */
 }
 
 .skill-circle-progress {
-  stroke: #007bff;
+  stroke: #3b82f6;
   stroke-linecap: round;
   /* Initial state for animation. Circumference = 2 * PI * 54 */
   stroke-dasharray: 339.292;
@@ -601,7 +603,7 @@ main > section.visible {
 }
 
 .dark-mode .testimonial-card {
-  background: rgba(30, 40, 60, 0.85);
+  background: rgba(15, 23, 42, 0.75);
 }
 
 .testimonial-header {
@@ -626,7 +628,7 @@ main > section.visible {
 }
 
 .dark-mode .testimonial-comment {
-  color: #ccc;
+  color: #a0aec0; /* Lighter silver/gray for text */
 }
 
 /* Testimonial Form */
@@ -640,7 +642,7 @@ main > section.visible {
 }
 
 .dark-mode #testimonial-form {
-  border-top-color: #444;
+  border-top-color: #4a5568; /* Silver/gray accent */
 }
 
 /* Shared Form Styles */
@@ -659,8 +661,8 @@ main > section.visible {
 .dark-mode #testimonial-form textarea,
 .dark-mode #contact-form input,
 .dark-mode #contact-form textarea {
-  background: #2a3b52;
-  border-color: #555;
+  background: #1e293b; /* A darker slate blue */
+  border-color: #4a5568; /* Silver/gray accent */
   color: #f0f0f0;
 }
 
@@ -668,7 +670,7 @@ main > section.visible {
 #contact-form button {
   padding: 12px 20px;
   border: none;
-  background: #007bff;
+  background: #3b82f6;
   color: white;
   border-radius: 8px;
   font-weight: bold;
@@ -678,8 +680,8 @@ main > section.visible {
 
 #testimonial-form button:hover,
 #contact-form button:hover {
-  background: #0056b3;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  background: #2563eb;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 /* Star Rating System */
@@ -778,7 +780,7 @@ main > section.visible {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  background: #007bff;
+  background: #3b82f6;
   color: white;
   border: none;
   padding: 12px 14px;
@@ -791,8 +793,8 @@ main > section.visible {
 }
 
 #scrollTopBtn:hover {
-  background: #0056b3;
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+  background: #2563eb;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
 /* ------------------- */
@@ -801,14 +803,14 @@ main > section.visible {
 footer {
   text-align: center;
   padding: 80px 40px 20px; /* Increased top padding for consistent spacing */
-  background: #007bff;
+  background: #2563eb;
   color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
 .dark-mode footer {
-  background: #1e1e2f;
+  background: #0f172a; /* Deep navy to match the background */
 }
 
 /* ------------------- */
