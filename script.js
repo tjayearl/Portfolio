@@ -137,13 +137,17 @@ window.addEventListener('DOMContentLoaded', () => {
   scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // ========== PROJECT FILTERS ==========
+  // The scroller has been removed. The filter functionality now works on all screen sizes.
   const filterButtons = document.querySelectorAll('.project-filters button');
   const projects = document.querySelectorAll('.project-card');
+
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+      // Update active button
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
+      // Filter projects
       const category = btn.dataset.filter;
       projects.forEach(card => {
         card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';

@@ -365,7 +365,6 @@ main > section.visible {
 .projects-container {
   display: grid;
   /* Forcing a 4-column layout on larger screens. */
-  /* This will be overridden for smaller screens in the media query. */
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
