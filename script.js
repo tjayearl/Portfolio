@@ -179,6 +179,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const testimonialForm = document.getElementById('testimonial-form');
   const testimonialList = document.getElementById('testimonial-list');
 
+  // Check for admin mode via URL parameter (e.g., ?admin=true)
+  const isAdmin = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('admin') === 'true';
+  };
+  const adminMode = isAdmin();
+
   // Create an IntersectionObserver for fade-in animations on cards
   const cardObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry, index) => {
@@ -234,8 +241,30 @@ window.addEventListener('DOMContentLoaded', () => {
     return starsHTML;
   };
 
+  // Function to handle testimonial deletion
+  const deleteTestimonial = (indexToDelete) => {
+    let testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+    const index = parseInt(indexToDelete, 10);
+    if (index >= 0 && index < testimonials.length) {
+      testimonials.splice(index, 1); // Remove the item
+      localStorage.setItem('testimonials', JSON.stringify(testimonials));
+      loadTestimonials(); // Reload the list to reflect the change
+    }
+  };
+
+  // Add event listener for delete buttons using event delegation
+  testimonialList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-testimonial-btn')) {
+      const index = e.target.dataset.index;
+      if (confirm('Are you sure you want to delete this testimonial?')) {
+        deleteTestimonial(index);
+      }
+    }
+  });
+
   // Function to create and display a testimonial card
-  const addTestimonial = (name, rating, comment, role) => {
+  const addTestimonial = (testimonial, index) => {
+    const { name, rating, comment, role } = testimonial;
     const card = document.createElement('div');
     card.className = 'testimonial-card';
 
@@ -250,7 +279,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const initials = getInitials(name);
     const bgColor = generateColor(name);
 
+    // Only add delete button if in admin mode
+    const deleteButtonHTML = adminMode ? `<button class="delete-testimonial-btn" data-index="${index}" title="Delete Testimonial">&times;</button>` : '';
+
     card.innerHTML = `
+      ${deleteButtonHTML}
       ${ratingHTML}
       <p class="testimonial-comment">${comment}</p>
       <div class="testimonial-author">
@@ -270,12 +303,28 @@ window.addEventListener('DOMContentLoaded', () => {
   // Load testimonials from localStorage
   const loadTestimonials = () => {
     const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+    // Always clear the list to ensure a fresh render
+    testimonialList.innerHTML = '';
+
     if (testimonials.length > 0) {
-      // Clear default testimonial if there are saved ones
-      testimonialList.innerHTML = '';
-      testimonials.forEach(t => addTestimonial(t.name, t.rating, t.comment, t.role));
+      testimonials.forEach((t, index) => addTestimonial(t, index));
     } else {
-      // If no saved testimonials, observe the default one from the HTML
+      // If no testimonials in storage, re-insert the default one.
+      testimonialList.innerHTML = `
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-comment">Tjay is incredibly dedicated and creative. He always delivers beyond expectations.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-initials" style="background-color: #3b82f6;">PD</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name">Peer Developer</span>
+              <span class="testimonial-role">Lead Developer, Awesome Inc.</span>
+            </div>
+          </div>
+        </div>
+      `;
       const defaultCard = testimonialList.querySelector('.testimonial-card');
       if (defaultCard) {
         cardObserver.observe(defaultCard);
@@ -292,12 +341,15 @@ window.addEventListener('DOMContentLoaded', () => {
     const ratingInput = document.querySelector('.star-rating input:checked');
     const rating = ratingInput ? ratingInput.value : null;
     
-    addTestimonial(name, rating, comment, role);
+    const newTestimonial = { name, rating, comment, role };
 
     // Save to localStorage
     const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
-    testimonials.push({ name, rating, comment, role });
+    testimonials.push(newTestimonial);
     localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+    // Reload the whole list to ensure consistency
+    loadTestimonials();
 
     testimonialForm.reset();
   });

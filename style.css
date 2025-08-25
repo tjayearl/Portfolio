@@ -724,7 +724,33 @@ main > section.visible {
 .testimonial-rating {
   position: absolute;
   top: 15px;
-  right: 20px;
+  right: 50px; /* Pushed to make space for delete button */
+}
+
+.delete-testimonial-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ef4444; /* Red for delete */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2; /* Above rating and quote icon */
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete-testimonial-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5);
 }
 
 .testimonial-rating .fa-star {
