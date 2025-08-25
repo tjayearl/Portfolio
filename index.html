@@ -25,6 +25,7 @@
         <div class="social-icons">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
           <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/tjay-earl" target="_blank" rel="noopener noreferrer" aria-label="My LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
         </div>
         <label for="toggle-theme" class="theme-switch">
@@ -49,17 +50,23 @@
 
   <main>
     <section id="about">
-      <h2>About Me</h2>
+      <h2><i class="fas fa-user-circle"></i> About Me</h2>
       <div class="about-container">
         <div class="about-text">
-          <p>I'm a driven and creative software engineer with a passion for transforming complex problems into elegant, user-friendly digital experiences. With a solid foundation in software engineering from Moringa School, I specialize in building responsive and dynamic websites using modern web technologies. I find joy in the process of turning an idea into a tangible product that people can interact with. Fun fact: I have a deep appreciation for the classic engineering of vintage cars!</p>
+          <p>I'm a driven and creative software engineer with a passion for transforming complex problems into elegant, user-friendly digital experiences. With a solid foundation in software engineering from Moringa School, I specialize in building responsive and dynamic websites using modern web technologies. I find joy in the process of turning an idea into a tangible product that people can interact with.</p>
+          <blockquote class="motto">
+            "Code is like humor. When you have to explain it, it’s bad." – Cory House
+          </blockquote>
+          <div class="fun-fact-box">
+            <p><strong>Fun Fact:</strong> I have a deep appreciation for the classic engineering of vintage cars!</p>
+          </div>
         </div>
         <img src="images/Dev.jpg" alt="Developer working on a laptop" class="about-image">
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2><i class="fas fa-project-diagram"></i> Projects</h2>
       <div class="project-filters">
         <button data-filter="all" class="active">All</button>
         <button data-filter="web">Web</button>
@@ -67,50 +74,85 @@
       </div>
       <div class="projects-container">
         <div class="project-card" data-category="web">
-          <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" />
-          <div class="project-details">
+          <div class="project-image-container">
+            <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" />
+            <div class="project-curtain-overlay">
+              <p>A vibrant and responsive website for a local ice cream shop, built with a focus on a fun user experience.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+            </div>
+          </div>
+          <div class="project-info-footer">
             <h3>Brain Freeze</h3>
-            <p>A vibrant and responsive website for a local ice cream shop, built with a focus on a fun user experience.</p>
-            <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
           </div>
         </div>
         <div class="project-card" data-category="tools">
-          <img src="images/todolist.png" alt="To-Do List Screenshot" />
-          <div class="project-details">
+          <div class="project-image-container">
+            <img src="images/todolist.png" alt="To-Do List Screenshot" />
+            <div class="project-curtain-overlay">
+              <p>A clean and simple to-do list application to help you stay organized and track your daily tasks.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+            </div>
+          </div>
+          <div class="project-info-footer">
             <h3>To-Do List</h3>
-            <p>A clean and simple to-do list application to help you stay organized and track your daily tasks.</p>
-            <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
           </div>
         </div>
         <div class="project-card" data-category="tools">
-          <img src="images/expense-tracker.png" alt="Expense Tracker Screenshot" />
-          <div class="project-details">
+          <div class="project-image-container">
+            <img src="images/expense-tracker.png" alt="Expense Tracker Screenshot" />
+            <div class="project-curtain-overlay">
+              <p>An intuitive tool to monitor your income and expenses, helping you manage your budget effectively.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+            </div>
+          </div>
+          <div class="project-info-footer">
             <h3>Expense Tracker</h3>
-            <p>An intuitive tool to monitor your income and expenses, helping you manage your budget effectively.</p>
-            <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
           </div>
         </div>
         <div class="project-card" data-category="web">
-          <img src="images/Machines.png" alt="Machines Screenshot" />
-          <div class="project-details">
+          <div class="project-image-container">
+            <img src="images/Machines.png" alt="Machines Screenshot" />
+            <div class="project-curtain-overlay">
+              <p>A conceptual platform for car enthusiasts to buy and sell vehicles, featuring a sleek, modern interface.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+            </div>
+          </div>
+          <div class="project-info-footer">
             <h3>Machines</h3>
-            <p>A conceptual platform for car enthusiasts to buy and sell vehicles, featuring a sleek, modern interface.</p>
-            <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer">Live Preview</a>
           </div>
         </div>
         <div class="project-card" data-category="tools">
-          <img src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" />
-          <div class="project-details">
+          <div class="project-image-container">
+            <img src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" />
+            <div class="project-curtain-overlay">
+              <p>A personal AI assistant currently in development, designed to be helpful and intuitive.</p>
+              <div class="project-tags">
+                <span>Vite</span><span>React</span><span>TypeScript</span>
+              </div>
+              <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+            </div>
+          </div>
+          <div class="project-info-footer">
             <h3>E.A.R.L AI</h3>
-            <p>A personal AI assistant currently in development, designed to be helpful and intuitive.</p>
-            <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
           </div>
         </div>
       </div>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
+      <h2><i class="fas fa-cogs"></i> Skills</h2>
       <div class="skills-container">
         <div class="skill-card" data-skill-level="90">
           <div class="skill-circle-container">
@@ -191,7 +233,7 @@
 
     <section id="testimonials">
       <div class="testimonial-container">
-        <h2>Testimonials</h2>
+        <h2><i class="fas fa-comments"></i> Testimonials</h2>
         <div id="testimonial-list">
           <!-- Testimonials will be dynamically inserted here -->
           <div class="testimonial-card">
@@ -226,12 +268,13 @@
     </section>
 
     <section id="contact">
-      <h2>Contact Me</h2>
+      <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
       <div class="contact-container">
         <div class="contact-info">
           <h3>Get in Touch</h3>
           <p>I'm open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
+          <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/tjay-earl" target="_blank" rel="noopener noreferrer">linkedin.com/in/tjay-earl</a></p>
           <p><i class="fas fa-phone"></i> <a href="tel:0115633640">0115633640</a></p>
         </div>
         <!-- IMPORTANT: Replace 'mvoednan' with your own Formspree Form ID -->
@@ -248,7 +291,7 @@
   </main>
 
   <section id="extras">
-    <h2>Extras</h2>
+    <h2><i class="fas fa-plus-circle"></i> Extras</h2>
     <div class="extras-container">
       <a href="resume.html" class="cta-button">View Resume</a>
       <a href="cv.html" class="cta-button">View CV</a>

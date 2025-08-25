@@ -295,6 +295,20 @@ main > section {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+main > section h2 {
+  display: inline-flex; /* Allows centering via text-align on parent */
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+}
+
+main > section h2 i {
+  color: #3b82f6; /* Use the primary blue accent color */
+  font-size: 0.8em; /* Make icon slightly smaller than text */
+  padding-bottom: 5px; /* Align with text baseline */
+}
+
 /* The state when the section becomes visible */
 main > section.visible {
   opacity: 1;
@@ -327,6 +341,35 @@ main > section.visible {
 
 .about-image:hover {
   transform: scale(1.03);
+}
+
+.about-text .motto {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #3b82f6;
+  padding-left: 20px;
+  margin: 25px 0;
+  font-size: 1.1rem;
+}
+
+.dark-mode .about-text .motto {
+  color: #a0aec0;
+  border-left-color: #60a5fa;
+}
+
+.fun-fact-box {
+  background: #eef2ff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
+.fun-fact-box p {
+  margin-bottom: 0; /* Remove default paragraph margin */
+}
+
+.dark-mode .fun-fact-box {
+  background: #1e293b;
 }
 
 /* ------------------- */
@@ -371,13 +414,12 @@ main > section.visible {
 
 .project-card {
   background: rgba(255, 255, 255, 0.85);
-  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  text-align: center;
-  position: relative; /* For overlay positioning */
-  overflow: hidden; /* Hides the overlay when it's outside */
+  overflow: hidden; /* To clip the image corners */
+  display: flex;
+  flex-direction: column;
 }
 
 .dark-mode .project-card {
@@ -391,67 +433,94 @@ main > section.visible {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 0 1px #3b82f6; /* Glow + Outline */
 }
 
+.project-image-container {
+  position: relative; /* For positioning the overlay */
+  overflow: hidden; /* To contain the overlay */
+}
+
 .project-card img {
   width: 100%;
   display: block; /* Removes potential whitespace below the image */
   max-height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+  object-fit: cover; /* This will crop images to fit, change to 'contain' if you want to see the whole image */
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Subtle zoom on hover */
 }
 
-/* The "Tarp" Overlay */
-.project-details {
+.project-curtain-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(59, 130, 246, 0.9);
-  color: #fff;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  transform: translateY(-100%); /* Start above the card, ready to "fall" */
+  text-align: center;
+  transform: translateY(-100%); /* Start hidden above */
   transition: transform 0.35s ease-in-out;
 }
 
-.dark-mode .project-details {
+.dark-mode .project-curtain-overlay {
   background: rgba(15, 23, 42, 0.95);
 }
 
-.project-card:hover .project-details {
-  transform: translateY(0);
+.project-card:hover .project-curtain-overlay {
+  transform: translateY(0); /* Drop down on hover */
 }
 
-.project-details h3 {
-  margin-bottom: 10px;
-}
-
-.project-details p {
+.project-curtain-overlay p {
   font-size: 0.9rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.project-details a {
-  padding: 10px 20px;
-  border: 2px solid white;
+.project-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.project-tags span {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.project-info-footer {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.btn-live {
+  display: inline-block; /* Allows margin and padding */
   background: transparent;
   color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  text-align: center;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 8px;
   font-weight: bold;
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 
-.project-details a:hover {
+.btn-live:hover {
   background: white;
+  transform: translateY(-2px);
   color: #3b82f6;
 }
 
@@ -599,16 +668,6 @@ main > section.visible {
 /* Testimonials        */
 /* ------------------- */
 /* Give the section a distinct background and full-width feel */
-#testimonials {
-  background: #eef2ff; /* A soft, light indigo/blue */
-  /* The main > section styles handle padding, scroll-margin, and initial animation state */
-}
-
-.dark-mode #testimonials {
-  background: #1e293b; /* A dark slate blue, slightly different from body */
-}
-
-/* Inner container to constrain content width */
 .testimonial-container {
   max-width: 800px;
   margin: 0 auto; /* Center the container */
@@ -731,7 +790,7 @@ main > section.visible {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: #ef4444; /* Red for delete */
+  background: #6b7280; /* Neutral gray for consistency */
   color: white;
   border: none;
   border-radius: 50%;
@@ -750,11 +809,11 @@ main > section.visible {
 .delete-testimonial-btn:hover {
   opacity: 1;
   transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.5);
 }
 
 .testimonial-rating .fa-star {
-  color: #ffc700; /* Gold color for stars */
+  color: #a0aec0; /* Silver accent color for ratings */
 }
 
 .testimonial-comment {
@@ -852,7 +911,7 @@ main > section.visible {
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input[type="radio"]:checked ~ label {
-  color: #ffc700;
+  color: #3b82f6; /* Use primary blue for interactive elements */
 }
 
 /* ------------------- */
@@ -902,6 +961,12 @@ main > section.visible {
 #extras {
   text-align: center;
   padding: 80px 40px;
+  background: #eef2ff; /* A soft, light indigo/blue */
+  position: relative;
+}
+
+.dark-mode #extras {
+  background: #1e293b; /* A dark slate blue */
 }
 
 .extras-container {
