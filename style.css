@@ -598,14 +598,21 @@ main > section.visible {
 /* ------------------- */
 /* Testimonials        */
 /* ------------------- */
+/* Give the section a distinct background and full-width feel */
 #testimonials {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  background: #eef2ff; /* A soft, light indigo/blue */
+  /* The main > section styles handle padding, scroll-margin, and initial animation state */
 }
 
 .dark-mode #testimonials {
-  /* No dark background for this section to keep cards distinct */
+  background: #1e293b; /* A dark slate blue, slightly different from body */
+}
+
+/* Inner container to constrain content width */
+.testimonial-container {
+  max-width: 800px;
+  margin: 0 auto; /* Center the container */
+  text-align: center;
 }
 
 .testimonial-list {
@@ -615,28 +622,109 @@ main > section.visible {
   margin-bottom: 40px;
 }
 
+.testimonial-card::before {
+  content: '“';
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 5rem;
+  color: rgba(59, 130, 246, 0.1); /* Subtle blue accent color */
+  line-height: 1;
+  z-index: 0;
+}
+
+.dark-mode .testimonial-card::before {
+  color: rgba(255, 255, 255, 0.05);
+}
+
 .testimonial-card {
   background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
+  padding: 40px 20px 20px 20px; /* Add top padding for rating */
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Softer, slightly larger shadow */
   text-align: left;
+  position: relative; /* For absolute positioning of children and pseudo-elements */
+  overflow: hidden; /* To contain the quote icon */
+  /* Initial state for scroll-in animation */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+}
+
+/* The state when the card becomes visible */
+.testimonial-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhance shadow on hover */
 }
 
 .dark-mode .testimonial-card {
   background: rgba(15, 23, 42, 0.75);
+  box-shadow: none;
 }
 
-.testimonial-header {
+.dark-mode .testimonial-card:hover {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); /* Add a glow effect for dark mode */
+}
+
+/* Ensure card content is above the background quote icon */
+.testimonial-rating,
+.testimonial-comment,
+.testimonial-author {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.testimonial-initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.2rem;
+  flex-shrink: 0; /* Prevent the circle from shrinking */
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-name {
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.testimonial-role {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 2px;
+}
+
+.dark-mode .testimonial-role {
+  color: #a0aec0;
+}
+
+.testimonial-rating {
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 .testimonial-rating .fa-star {
@@ -645,11 +733,15 @@ main > section.visible {
 
 .testimonial-comment {
   font-style: italic;
-  color: #555;
+  color: #3b82f6; /* A nice blue for light mode */
+  font-size: 1.1rem;
+  position: relative;
+  /* padding: 0 15px; */ /* Padding for old quotes removed */
+  margin-bottom: 10px;
 }
 
 .dark-mode .testimonial-comment {
-  color: #a0aec0; /* Lighter silver/gray for text */
+  color: #60a5fa; /* A lighter, more vibrant blue for dark mode */
 }
 
 /* Testimonial Form */

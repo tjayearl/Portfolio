@@ -179,6 +179,47 @@ window.addEventListener('DOMContentLoaded', () => {
   const testimonialForm = document.getElementById('testimonial-form');
   const testimonialList = document.getElementById('testimonial-list');
 
+  // Create an IntersectionObserver for fade-in animations on cards
+  const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger the animation by adding a delay
+        entry.target.style.transitionDelay = `${index * 100}ms`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Function to get initials from a name string
+  const getInitials = (name) => {
+    const words = name.trim().split(' ').filter(Boolean); // filter out empty strings
+    if (words.length === 0) return '??';
+    if (words.length > 1) {
+      return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+    }
+    // Only one word
+    return words[0].substring(0, 2).toUpperCase();
+  };
+
+  // Function to generate a consistent color from a name string
+  const generateColor = (name) => {
+    const colors = [
+      '#ef4444', '#f97316', '#f59e0b', '#eab308', '#84cc16', '#22c55e',
+      '#10b981', '#14b8a6', '#06b6d4', '#0ea5e9', '#3b82f6', '#6366f1',
+      '#8b5cf6', '#a855f7', '#d946ef', '#ec4899', '#f43f5e'
+    ];
+    let hash = 0;
+    if (name.length === 0) return colors[0];
+    for (let i = 0; i < name.length; i++) {
+      const char = name.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    const index = Math.abs(hash % colors.length);
+    return colors[index];
+  };
+
   // Function to generate star icons from a rating number
   const generateStars = (rating) => {
     let starsHTML = '';
@@ -194,49 +235,68 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // Function to create and display a testimonial card
-  const addTestimonial = (name, rating, comment) => {
+  const addTestimonial = (name, rating, comment, role) => {
     const card = document.createElement('div');
     card.className = 'testimonial-card';
-    
+
     const ratingHTML = rating ? `
       <div class="testimonial-rating">
         ${generateStars(rating)}
       </div>
     ` : '';
-    
+
+    const roleHTML = role ? `<span class="testimonial-role">${role}</span>` : '';
+
+    const initials = getInitials(name);
+    const bgColor = generateColor(name);
+
     card.innerHTML = `
-      <div class="testimonial-header">
-        <span class="testimonial-name">${name}</span>
-        ${ratingHTML}
+      ${ratingHTML}
+      <p class="testimonial-comment">${comment}</p>
+      <div class="testimonial-author">
+        <div class="testimonial-initials" style="background-color: ${bgColor};">${initials}</div>
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">${name}</span>
+          ${roleHTML}
+        </div>
       </div>
-      <p class="testimonial-comment">"${comment}"</p>
     `;
     testimonialList.appendChild(card);
+
+    // Observe the newly added card for the fade-in animation
+    cardObserver.observe(card);
   };
 
   // Load testimonials from localStorage
   const loadTestimonials = () => {
     const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
-    // Clear default testimonial if there are saved ones
     if (testimonials.length > 0) {
+      // Clear default testimonial if there are saved ones
       testimonialList.innerHTML = '';
+      testimonials.forEach(t => addTestimonial(t.name, t.rating, t.comment, t.role));
+    } else {
+      // If no saved testimonials, observe the default one from the HTML
+      const defaultCard = testimonialList.querySelector('.testimonial-card');
+      if (defaultCard) {
+        cardObserver.observe(defaultCard);
+      }
     }
-    testimonials.forEach(t => addTestimonial(t.name, t.rating, t.comment));
   };
 
   // Handle form submission
   testimonialForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('client-name').value;
+    const role = document.getElementById('client-role').value;
     const comment = document.getElementById('client-comment').value;
     const ratingInput = document.querySelector('.star-rating input:checked');
     const rating = ratingInput ? ratingInput.value : null;
     
-    addTestimonial(name, rating, comment);
+    addTestimonial(name, rating, comment, role);
 
     // Save to localStorage
     const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
-    testimonials.push({ name, rating, comment });
+    testimonials.push({ name, rating, comment, role });
     localStorage.setItem('testimonials', JSON.stringify(testimonials));
 
     testimonialForm.reset();
