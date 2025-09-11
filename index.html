@@ -43,7 +43,7 @@
         <p>Aspiring Software Engineer. I enjoy turning ideas into reality using code.</p>
         <a href="#contact" class="cta-button">Let's Chat</a>
       </div>
-      <img src="images/tj.png" alt="Tjay Earl" class="profile-img" />
+      <img src="images/Devv.jpg" alt="Tjay Earl" class="profile-img" loading="lazy" />
       <!-- Contact form has been moved back to the contact section -->
     </div>
   </header>
@@ -53,99 +53,192 @@
       <h2><i class="fas fa-user-circle"></i> About Me</h2>
       <div class="about-container">
         <div class="about-text">
-          <p>I'm a driven and creative software engineer with a passion for transforming complex problems into elegant, user-friendly digital experiences. With a solid foundation in software engineering from Moringa School, I specialize in building responsive and dynamic websites using modern web technologies. I find joy in the process of turning an idea into a tangible product that people can interact with.</p>
+          <p>My journey into software engineering began with a fascination for how things work, which quickly evolved into a passion for building digital experiences. I thrive on the challenge of turning a complex problem into a clean, elegant, and user-friendly solution. For me, coding is a creative outlet—a way to bring ideas to life and build tangible products that people can interact with and enjoy.</p>
+          <p>What sets me apart is my blend of technical skill and a storyteller's mindset. I don't just write code; I build narratives that guide users and solve real-world problems. My background from Moringa School provided a strong foundation, but my drive to continuously learn and adapt is what fuels my growth.</p>
           <blockquote class="motto">
             "Code is like humor. When you have to explain it, it’s bad." – Cory House
           </blockquote>
-          <div class="fun-fact-box">
-            <p><strong>Fun Fact:</strong> I have a deep appreciation for the classic engineering of vintage cars!</p>
+          <div class="future-goals-box">
+            <h4>Future Goals</h4>
+            <p>I'm currently deepening my expertise in backend development with Python and exploring advanced concepts in cloud deployment. My next major project goal is to build a comprehensive, multi-user web application that integrates a machine learning model to provide personalized user experiences.</p>
           </div>
         </div>
-        <img src="images/Dev.jpg" alt="Developer working on a laptop" class="about-image">
+        <img src="images/Tjayportrait.png" alt="Tjay Earl working" class="about-image" loading="lazy">
       </div>
     </section>
 
     <section id="projects">
       <h2><i class="fas fa-project-diagram"></i> Projects</h2>
       <div class="project-filters">
-        <button data-filter="all" class="active">All</button>
-        <button data-filter="web">Web</button>
-        <button data-filter="tools">Tools</button>
+        <button data-filter="all" class="active">All Projects</button>
+        <button data-filter="client">Client Work</button>
+        <button data-filter="personal">Personal Projects</button>
+        <button data-filter="web">Websites</button>
+        <button data-filter="tools">Apps/Tools</button>
       </div>
       <div class="projects-container">
-        <div class="project-card" data-category="web">
+        <div class="project-card" data-category="web" data-type="client"
+             data-challenge="The client, an emerging insurance agency, needed a professional and modern website to establish a credible online presence, attract new clients, and clearly present their insurance products."
+             data-solution="I developed a full-stack website with a clean, responsive design. The site features intuitive navigation, clear calls-to-action for requesting quotes, and a backend to handle future client inquiries. The design builds trust and professionalism."
+             data-impact="The new website provides Jelani-Africa with a legitimate digital storefront, enhancing their brand image and making it easier for potential customers to find and contact them.">
           <div class="project-image-container">
-            <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" />
+            <a href="https://jelani-afrika.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Jelani-Africa Website">
+              <img src="images/JelaniAfrika.png" alt="Jelani-Africa Screenshot" loading="lazy" />
+            </a>
+            <div class="project-status-banner">In Progress</div>
             <div class="project-curtain-overlay">
-              <p>A vibrant and responsive website for a local ice cream shop, built with a focus on a fun user experience.</p>
+              <div class="project-tags">
+                <span data-tooltip="HyperText Markup Language">HTML</span><span data-tooltip="Cascading Style Sheets">CSS</span><span data-tooltip="JavaScript">JavaScript</span><span data-tooltip="Python Backend">Python</span>
+              </div>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> Built a responsive, full-stack website for an insurance agency.</li>
+                <li><i class="fas fa-check-circle"></i> Developed the front-end architecture and back-end logic.</li>
+                <li><i class="fas fa-check-circle"></i> Designed for a professional user experience to build client trust.</li>
+              </ul>
+              <div class="achievement-badges">
+                <span class="badge responsive-badge">Responsive Design</span>
+                <span class="badge fullstack-badge">Full-Stack</span>
+              </div>
+              <div class="project-footer-links">
+                <!-- No code button as it's a client project -->
+                <a href="https://jelani-afrika.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info-footer">
+            <h3>Jelani-Africa Website</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
+          </div>
+        </div>
+        <div class="project-card" data-category="web" data-type="personal">
+          <div class="project-image-container">
+            <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Brain Freeze">
+              <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" loading="lazy" />
+            </a>
+            <div class="project-curtain-overlay">
               <div class="project-tags">
                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> Created a vibrant website for a local ice cream shop.</li>
+                <li><i class="fas fa-check-circle"></i> Handled the complete design and development.</li>
+                <li><i class="fas fa-check-circle"></i> Focused on a fun, engaging user experience.</li>
+              </ul>
+              <div class="achievement-badges">
+                <span class="badge responsive-badge">Responsive Design</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="https://github.com/tjayearl/Brain-Freeze" target="_blank" rel="noopener noreferrer" class="btn-view-code" data-tooltip="View GitHub Code"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
             </div>
           </div>
           <div class="project-info-footer">
             <h3>Brain Freeze</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
           </div>
         </div>
-        <div class="project-card" data-category="tools">
+        <div class="project-card" data-category="tools" data-type="personal">
           <div class="project-image-container">
-            <img src="images/todolist.png" alt="To-Do List Screenshot" />
+            <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of To-Do List">
+              <img src="images/todolist.png" alt="To-Do List Screenshot" loading="lazy" />
+            </a>
             <div class="project-curtain-overlay">
-              <p>A clean and simple to-do list application to help you stay organized and track your daily tasks.</p>
               <div class="project-tags">
                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> Developed a clean to-do list app to track daily tasks.</li>
+                <li><i class="fas fa-check-circle"></i> Implemented logic for adding, deleting, and marking tasks.</li>
+                <li><i class="fas fa-check-circle"></i> Ensured a simple and intuitive user interface.</li>
+              </ul>
+              <div class="project-footer-links">
+                <a href="https://github.com/tjayearl/Todolist" target="_blank" rel="noopener noreferrer" class="btn-view-code" data-tooltip="View GitHub Code"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
             </div>
           </div>
           <div class="project-info-footer">
             <h3>To-Do List</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
           </div>
         </div>
-        <div class="project-card" data-category="tools">
+        <div class="project-card" data-category="tools" data-type="personal">
           <div class="project-image-container">
-            <img src="images/expense-tracker.png" alt="Expense Tracker Screenshot" />
+            <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Expense Tracker">
+              <img src="images/expense-tracker.png" alt="Expense Tracker Screenshot" loading="lazy" />
+            </a>
             <div class="project-curtain-overlay">
-              <p>An intuitive tool to monitor your income and expenses, helping you manage your budget effectively.</p>
               <div class="project-tags">
                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> Built a tool to monitor income and expenses.</li>
+                <li><i class="fas fa-check-circle"></i> Developed the core logic for tracking financial data.</li>
+                <li><i class="fas fa-check-circle"></i> Designed for clarity and ease of use.</li>
+              </ul>
+              <div class="project-footer-links">
+                <a href="https://github.com/tjayearl/Expense-Tracker" target="_blank" rel="noopener noreferrer" class="btn-view-code" data-tooltip="View GitHub Code"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
             </div>
           </div>
           <div class="project-info-footer">
             <h3>Expense Tracker</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
           </div>
         </div>
-        <div class="project-card" data-category="web">
+        <div class="project-card" data-category="web" data-type="personal">
           <div class="project-image-container">
-            <img src="images/Machines.png" alt="Machines Screenshot" />
+            <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Machines">
+              <img src="images/Machines.png" alt="Machines Screenshot" loading="lazy" />
+            </a>
             <div class="project-curtain-overlay">
-              <p>A conceptual platform for car enthusiasts to buy and sell vehicles, featuring a sleek, modern interface.</p>
               <div class="project-tags">
                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> Designed a conceptual platform for buying and selling cars.</li>
+                <li><i class="fas fa-check-circle"></i> Created a sleek, modern interface for car enthusiasts.</li>
+                <li><i class="fas fa-check-circle"></i> Sole developer for UI and front-end functionality.</li>
+              </ul>
+              <div class="project-footer-links">
+                <a href="https://github.com/tjayearl/Machine" target="_blank" rel="noopener noreferrer" class="btn-view-code" data-tooltip="View GitHub Code"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
             </div>
           </div>
           <div class="project-info-footer">
             <h3>Machines</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
           </div>
         </div>
-        <div class="project-card" data-category="tools">
+        <div class="project-card" data-category="tools" data-type="personal">
           <div class="project-image-container">
-            <img src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" />
+            <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of E.A.R.L AI">
+              <img src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" loading="lazy" />
+            </a>
             <div class="project-curtain-overlay">
-              <p>A personal AI assistant currently in development, designed to be helpful and intuitive.</p>
               <div class="project-tags">
                 <span>Vite</span><span>React</span><span>TypeScript</span>
               </div>
-              <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live</a>
+              <ul class="project-description-list">
+                <li><i class="fas fa-check-circle"></i> A personal AI assistant currently in development.</li>
+                <li><i class="fas fa-check-circle"></i> Exploring front-end development with modern frameworks.</li>
+                <li><i class="fas fa-check-circle"></i> Designed to be helpful and intuitive.</li>
+              </ul>
+              <div class="achievement-badges">
+                <span class="badge fullstack-badge">AI/ML</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="https://github.com/tjayearl/E.A.R.L-frontend" target="_blank" rel="noopener noreferrer" class="btn-view-code" data-tooltip="View GitHub Code"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+              </div>
             </div>
           </div>
           <div class="project-info-footer">
             <h3>E.A.R.L AI</h3>
+            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
           </div>
         </div>
       </div>
@@ -231,10 +324,40 @@
       </div>
     </section>
 
+    <section id="certifications">
+      <h2><i class="fas fa-award"></i> Certifications</h2>
+      <div class="certifications-container">
+        <div class="certification-card">
+          <div class="certification-badge">
+            <div class="badge-icon"><i class="fas fa-graduation-cap"></i></div>
+          </div>
+          <div class="certification-info">
+            <h3>Software Engineering</h3>
+            <h4>Moringa School</h4>
+            <p>Completed an intensive, full-time software engineering program focused on building full-stack applications with modern technologies. The curriculum covered fundamental computer science concepts, front-end development with JavaScript frameworks, and back-end development with Ruby on Rails.</p>
+            <a href="images/Tjay Earl Completion Letter (1).pdf" download="Tjay-Earl-Moringa-Completion-Letter.pdf" class="cta-button">Download Letter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="testimonials">
       <div class="testimonial-container">
         <h2><i class="fas fa-comments"></i> Testimonials</h2>
         <div id="testimonial-list">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-comment">Tjay delivered a professional and responsive website for my business. His attention to detail and commitment were outstanding.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-initials" style="background-color: #ec4899;">RG</div>
+              <div class="testimonial-author-info">
+                <span class="testimonial-name">Rachel Gitome</span>
+                <span class="testimonial-role">Founder, Jelani-Africa</span>
+              </div>
+            </div>
+          </div>
           <!-- Testimonials will be dynamically inserted here -->
           <div class="testimonial-card">
             <div class="testimonial-rating">
@@ -304,6 +427,30 @@
   </footer>
 
   <button id="scrollTopBtn">↑</button>
+
+  <!-- Modal for Case Studies -->
+  <div id="case-study-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal-btn">&times;</span>
+      <h2 id="modal-title"></h2>
+      <div id="modal-tags" class="project-tags"></div>
+      
+      <h3>The Challenge</h3>
+      <p id="modal-challenge"></p>
+      
+      <h3>My Solution</h3>
+      <p id="modal-solution"></p>
+      
+      <h3>Impact</h3>
+      <p id="modal-impact"></p>
+    </div>
+  </div>
+
+  <!-- Lightbox for Full-Screen Image Preview -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
 
   <script src="script.js"></script>
 </body>

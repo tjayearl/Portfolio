@@ -29,29 +29,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ========== TYPING EFFECT FOR HERO TEXT ==========
-  /**
-   * Simulates a typewriter effect on a given HTML element.
-   * @param {HTMLElement} element The DOM element to type into.
-   * @param {string} text The full text string to type.
-   * @param {number} speed The delay in milliseconds between each character.
-   * @param {function} [callback] An optional function to call after typing is complete.
-   */
-  function typeWriter(element, text, speed, callback) {
-    let i = 0;
-    element.textContent = ''; // Clear content initially to prevent flash of un-typed text
-    function type() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      } else if (callback) {
-        callback();
-      }
-    }
-    type(); // Start the typing process
-  }
-
   // ========== THEME TOGGLE ==========
   const toggleThemeBtn = document.getElementById('toggle-theme');
 
@@ -82,20 +59,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('dark-mode', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-
-  // Apply typing effect to hero section text
-  const heroTitle = document.querySelector('.hero-text h2');
-  const heroSubtitle = document.querySelector('.hero-text p');
-
-  if (heroTitle && heroSubtitle) {
-    const originalTitle = heroTitle.textContent;
-    const originalSubtitle = heroSubtitle.textContent;
-
-    // Start typing the title, then the subtitle after the title is done
-    typeWriter(heroTitle, originalTitle, 70, () => { // 70ms per character for the title
-      typeWriter(heroSubtitle, originalSubtitle, 50); // 50ms per character for the subtitle
-    });
-  }
 
   // ========== HERO IMAGE SCROLL ANIMATION ==========
   const heroImg = document.querySelector('.hero-container .profile-img');
@@ -136,6 +99,32 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  // ========== LIGHTBOX FOR PROJECT IMAGES ==========
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const projectImages = document.querySelectorAll('.project-image-container img');
+  const lightboxClose = document.querySelector('.lightbox-close');
+
+  if (lightbox && lightboxImg && projectImages.length > 0 && lightboxClose) {
+    projectImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.style.display = 'none';
+    };
+
+    // Close on 'x' button click
+    lightboxClose.addEventListener('click', closeLightbox);
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
   // ========== PROJECT FILTERS ==========
   // The scroller has been removed. The filter functionality now works on all screen sizes.
   const filterButtons = document.querySelectorAll('.project-filters button');
@@ -150,7 +139,10 @@ window.addEventListener('DOMContentLoaded', () => {
       // Filter projects
       const category = btn.dataset.filter;
       projects.forEach(card => {
-        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+        const isInCategory = card.dataset.category === category;
+        const isInType = card.dataset.type === category;
+        const shouldShow = category === 'all' || isInCategory || isInType;
+        card.style.display = shouldShow ? 'block' : 'none';
       });
     });
   });
@@ -357,6 +349,52 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initial load
   loadTestimonials();
 
+  // ========== COLLAPSIBLE CASE STUDIES ==========
+  const modal = document.getElementById('case-study-modal');
+  const closeModalBtn = document.querySelector('.close-modal-btn');
+  const learnMoreLinks = document.querySelectorAll('.learn-more-link');
+
+  if (modal && closeModalBtn && learnMoreLinks.length > 0) {
+    const modalTitle = document.getElementById('modal-title');
+    const modalTags = document.getElementById('modal-tags');
+    const modalChallenge = document.getElementById('modal-challenge');
+    const modalSolution = document.getElementById('modal-solution');
+    const modalImpact = document.getElementById('modal-impact');
+
+    learnMoreLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const card = e.target.closest('.project-card');
+        const title = card.querySelector('h3').textContent;
+        const tags = card.querySelectorAll('.project-tags span');
+        
+        // Populate modal with data from the card's data attributes
+        modalTitle.textContent = title;
+        modalChallenge.textContent = card.dataset.challenge || 'Details not available.';
+        modalSolution.textContent = card.dataset.solution || 'Details not available.';
+        modalImpact.textContent = card.dataset.impact || 'Details not available.';
+
+        // Populate tags
+        modalTags.innerHTML = '';
+        tags.forEach(tag => {
+          modalTags.appendChild(tag.cloneNode(true));
+        });
+
+        modal.style.display = 'block';
+      });
+    });
+
+    const closeModal = () => {
+      modal.style.display = 'none';
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
   // ========== CONTACT FORM (FORMSPREE) ==========
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
@@ -394,32 +432,32 @@ window.addEventListener('DOMContentLoaded', () => {
   contactForm.addEventListener("submit", handleSubmit);
 
   // ========== SCROLL-IN ANIMATIONS FOR SECTIONS ==========
-  const sectionsToAnimate = document.querySelectorAll('main > section');
+  const animatedElements = document.querySelectorAll('main > section, .project-card');
 
-  const sectionObserver = new IntersectionObserver((entries, observer) => {
+  const animationObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      // When the section is in the viewport
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        const target = entry.target;
+        
+        // Add staggered delay for project cards
+        if (target.classList.contains('project-card')) {
+          const cardIndex = Array.from(target.parentElement.children).indexOf(target);
+          target.style.transitionDelay = `${cardIndex * 100}ms`;
+        }
 
-        // If the visible section is the skills section, animate the circles
-        if (entry.target.id === 'skills') {
+        target.classList.add('visible');
+
+        if (target.id === 'skills') {
           const skillCircles = document.querySelectorAll('.skill-circle-progress');
           skillCircles.forEach(circle => {
             const skillCard = circle.closest('.skill-card');
             const level = skillCard.dataset.skillLevel;
             const radius = circle.r.baseVal.value;
             const circumference = 2 * Math.PI * radius;
-            
-            // Calculate the offset based on skill level
             const offset = circumference - (level / 100) * circumference;
-            
-            // Set the offset to trigger the CSS transition
             circle.style.strokeDashoffset = offset;
           });
         }
-
-        // Stop observing the element so the animation doesn't re-run
         observer.unobserve(entry.target);
       }
     });
@@ -429,7 +467,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // Observe each section
-  sectionsToAnimate.forEach(section => {
-    sectionObserver.observe(section);
+  animatedElements.forEach(el => {
+    animationObserver.observe(el);
   });
 });
