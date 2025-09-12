@@ -360,6 +360,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const modalChallenge = document.getElementById('modal-challenge');
     const modalSolution = document.getElementById('modal-solution');
     const modalImpact = document.getElementById('modal-impact');
+    const modalDescription = document.getElementById('modal-description');
+    const modalAchievements = document.getElementById('modal-achievements');
+    const modalLinks = document.getElementById('modal-links');
 
     learnMoreLinks.forEach(link => {
       link.addEventListener('click', (e) => {
@@ -367,6 +370,9 @@ window.addEventListener('DOMContentLoaded', () => {
         const card = e.target.closest('.project-card');
         const title = card.querySelector('h3').textContent;
         const tags = card.querySelectorAll('.project-tags span');
+        const description = card.querySelector('.project-description-list');
+        const achievements = card.querySelector('.achievement-badges');
+        const links = card.querySelector('.project-footer-links');
         
         // Populate modal with data from the card's data attributes
         modalTitle.textContent = title;
@@ -379,6 +385,23 @@ window.addEventListener('DOMContentLoaded', () => {
         tags.forEach(tag => {
           modalTags.appendChild(tag.cloneNode(true));
         });
+
+        // Populate description, achievements, and links
+        if (description) {
+          modalDescription.innerHTML = description.innerHTML;
+        } else {
+          modalDescription.innerHTML = '';
+        }
+        if (achievements) {
+          modalAchievements.innerHTML = achievements.innerHTML;
+        } else {
+          modalAchievements.innerHTML = '';
+        }
+        if (links) {
+          modalLinks.innerHTML = links.innerHTML;
+        } else {
+          modalLinks.innerHTML = '';
+        }
 
         modal.style.display = 'block';
       });

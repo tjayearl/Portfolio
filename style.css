@@ -9,10 +9,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-gradient-start: #f5f7fa;
+  --bg-gradient-end: #c3cfe2;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #2563eb;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: #4a5568;
+  --footer-bg: #2563eb;
+}
+
+.dark-mode {
+  --bg-gradient-start: #0f172a;
+  --bg-gradient-end: #1d4ed8;
+  --text-primary: #f0f0f0;
+  --text-secondary: #cbd5e1;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #3b82f6;
+  --navbar-bg: rgba(15, 23, 42, 0.85);
+  --card-bg: rgba(15, 23, 42, 0.7);
+  --card-border: #4a5568;
+  --footer-bg: #0f172a;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-  color: #1a1a1a;
+  background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-primary);
   transition: background 0.3s, color 0.3s;
 }
 
@@ -20,11 +46,6 @@ body {
 main, header {
   padding-top: 80px; /* Adjust based on navbar height */
   transition: padding-top 0.3s ease;
-}
-
-.dark-mode {
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #f0f0f0;
 }
 
 h1, h2, h3 {
@@ -40,7 +61,7 @@ h1, h2, h3 {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
   z-index: 999;
   display: flex;
@@ -49,10 +70,6 @@ h1, h2, h3 {
   padding: 15px 40px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   transition: top 0.3s ease, background 0.3s;
-}
-
-.dark-mode .navbar {
-  background: rgba(15, 23, 42, 0.85); /* Deeper navy, more transparent for blur */
 }
 
 .navbar .logo {
@@ -93,7 +110,7 @@ h1, h2, h3 {
   position: absolute;
   width: 0%;
   height: 2px;
-  background: #3b82f6;
+  background: var(--accent-primary);
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -164,7 +181,7 @@ h1, h2, h3 {
 }
 
 input:checked + .slider {
-  background-color: #3b82f6;
+  background-color: var(--accent-primary);
 }
 
 input:checked + .slider:before {
@@ -232,8 +249,8 @@ header#hero {
 
   /* New styles for the card effect */
   color: white; /* Ensure text is white */
-  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), /* Darker, more uniform overlay */
-              url('images/Tjayportrait.png') no-repeat center center/cover; /* Use your portrait */
+  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)),
+              url('images/Tjayportrait.png') no-repeat center center/cover;
   background-attachment: fixed; /* Creates a nice parallax effect on scroll */
   border-radius: 0 0 25px 25px; /* Rounded bottom corners for a modern, full-width look */
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -246,14 +263,14 @@ header#hero {
   aspect-ratio: 1 / 1;
   height: 250px; /* Made image bigger */
   object-fit: cover;
-  border: 4px solid #3b82f6;
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+  border: 4px solid var(--accent-primary);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); /* This glow is fine as is */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-container .profile-img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 45px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 45px rgba(59, 130, 246, 0.7); /* This glow is fine as is */
 }
 
 .hero-container .hero-text {
@@ -269,16 +286,16 @@ header#hero {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
   text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .cta-button:hover {
-  background: #2563eb;
+  background: var(--accent-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
@@ -305,7 +322,7 @@ main > section h2 {
 }
 
 main > section h2 i {
-  color: #3b82f6; /* Use the primary blue accent color */
+  color: var(--accent-primary);
   font-size: 0.8em; /* Make icon slightly smaller than text */
   padding-bottom: 5px; /* Align with text baseline */
 }
@@ -346,16 +363,11 @@ main > section.visible {
 
 .about-text .motto {
   font-style: italic;
-  color: #555;
-  border-left: 4px solid #3b82f6;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--accent-primary);
   padding-left: 20px;
   margin: 25px 0;
   font-size: 1.1rem;
-}
-
-.dark-mode .about-text .motto {
-  color: #a0aec0;
-  border-left-color: #60a5fa;
 }
 
 .future-goals-box {
@@ -363,12 +375,12 @@ main > section.visible {
   padding: 15px 20px;
   border-radius: 8px;
   margin-top: 25px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid var(--accent-primary);
 }
 
 .future-goals-box h4 {
   margin-bottom: 10px;
-  color: #3b82f6;
+  color: var(--accent-primary);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -390,22 +402,22 @@ main > section.visible {
 .project-filters button {
   padding: 10px 20px;
   border: none;
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .project-filters button:hover {
-  background: #2563eb;
+  background: var(--accent-secondary);
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .project-filters button.active {
-  background: #2563eb;
+  background: var(--accent-secondary);
   transform: scale(1.05);
 }
 
@@ -417,7 +429,7 @@ main > section.visible {
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--card-bg);
   border-radius: 12px;
   /* A more subtle, layered shadow for a modern "floating" effect */
   box-shadow: 0 1px 2px rgba(0,0,0,0.02),
@@ -449,19 +461,13 @@ main > section.visible {
   width: 120px;
 }
 
-.dark-mode .project-card {
-  /* Against a dark background, make cards pop more */
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid #4a5568; /* Silver/gray border */
-}
-
 .project-card:hover {
   transform: translateY(-5px);
   /* Intensify the layered shadow and add a glow */
   box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1),
               0 8px 16px rgba(59, 130, 246, 0.15),
               0 15px 30px rgba(59, 130, 246, 0.2);
-  border-color: #3b82f6; /* Add a crisp accent border on hover */
+  border-color: var(--accent-primary); /* Add a crisp accent border on hover */
 }
 
 /* The state when the card becomes visible */
@@ -494,7 +500,7 @@ main > section.visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(59, 130, 246, 0.9);
+  background: rgba(59, 130, 246, 0.9); /* This is an overlay, so a hardcoded color is fine */
   color: white;
   display: flex;
   flex-direction: column;
@@ -511,7 +517,7 @@ main > section.visible {
 }
 
 .dark-mode .project-curtain-overlay {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.95); /* Dark overlay is also fine hardcoded */
 }
 
 .project-card:hover .project-curtain-overlay {
@@ -641,7 +647,7 @@ main > section.visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #3b82f6;
+  color: var(--accent-primary);
   text-decoration: none;
   font-weight: bold;
   font-size: 0.9rem;
@@ -681,30 +687,30 @@ main > section.visible {
 }
 
 .btn-view-project {
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
 }
 
 .btn-view-project:hover {
-  background: #2563eb;
+  background: var(--accent-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .btn-view-code {
   background: transparent;
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
 }
 
 .btn-view-code:hover {
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
 }
 
 .dark-mode .btn-view-code {
-  color: #60a5fa; /* Lighter blue for dark mode */
-  border-color: #60a5fa;
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
 }
 
 /* Tooltip for buttons */
@@ -839,14 +845,14 @@ main > section.visible {
 }
 
 .dark-mode .modal-content {
-  background: #1e293b;
+  background: #1e293b; /* Specific dark component color */
   border: 1px solid #4a5568;
 }
 
 .modal-content h3 {
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #3b82f6;
+  color: var(--accent-primary);
 }
 
 .close-modal-btn {
@@ -907,16 +913,12 @@ main > section.visible {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--card-bg);
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.dark-mode .skill-circle-container {
-  background: rgba(15, 23, 42, 0.7);
 }
 
 .skill-card:hover .skill-circle-container {
@@ -940,12 +942,8 @@ main > section.visible {
   stroke: #e6e6e6;
 }
 
-.dark-mode .skill-circle-bg {
-  stroke: #4a5568; /* Silver/gray accent */
-}
-
 .skill-circle-progress {
-  stroke: #3b82f6;
+  stroke: var(--accent-primary);
   stroke-linecap: round;
   /* Initial state for animation. Circumference = 2 * PI * 54 */
   stroke-dasharray: 339.292;
@@ -973,7 +971,7 @@ main > section.visible {
   font-size: 2rem; /* Adjusted font size to fit text */
   font-weight: 700;
   line-height: 1;
-  color: #333; /* Default text color */
+  color: var(--text-primary);
   transition: opacity 0.3s ease-in-out;
   /* Position them on top of each other inside the wrapper */
   position: absolute;
@@ -996,10 +994,6 @@ main > section.visible {
   opacity: 1;
 }
 
-.dark-mode .skill-icon-wrapper span {
-  color: #f0f0f0; /* Text color in dark mode */
-}
-
 .other-skills {
   margin-top: 40px;
   line-height: 1.8;
@@ -1017,7 +1011,7 @@ main > section.visible {
 .certification-card {
   display: flex;
   gap: 30px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -1031,16 +1025,11 @@ main > section.visible {
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.dark-mode .certification-card {
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid #4a5568;
-}
-
 .certification-badge {
   flex-shrink: 0;
   width: 150px;
   height: 150px;
-  background: #3b82f6;
+  background: var(--accent-primary);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1061,16 +1050,12 @@ main > section.visible {
   color: rgba(255,255,255,0.8);
 }
 
-.dark-mode .certification-badge {
-  color: #3b82f6;
-}
-
 .certification-info {
   flex: 1;
 }
 
 .certification-info h4 {
-  color: #555;
+  color: var(--text-secondary);
 }
 
 /* ------------------- */
@@ -1097,17 +1082,13 @@ main > section.visible {
   left: 15px;
   font-family: 'Baloo 2', cursive;
   font-size: 5rem;
-  color: rgba(59, 130, 246, 0.1); /* Subtle blue accent color */
+  color: rgba(59, 130, 246, 0.1); /* Hardcoded is fine for this subtle effect */
   line-height: 1;
   z-index: 0;
 }
 
-.dark-mode .testimonial-card::before {
-  color: rgba(255, 255, 255, 0.05);
-}
-
 .testimonial-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--card-bg);
   padding: 40px 20px 20px 20px; /* Add top padding for rating */
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Softer, slightly larger shadow */
@@ -1129,11 +1110,6 @@ main > section.visible {
 .testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhance shadow on hover */
-}
-
-.dark-mode .testimonial-card {
-  background: rgba(15, 23, 42, 0.75);
-  box-shadow: none;
 }
 
 .dark-mode .testimonial-card:hover {
@@ -1181,12 +1157,8 @@ main > section.visible {
 
 .testimonial-role {
   font-size: 0.9em;
-  color: #555;
+  color: var(--text-secondary);
   margin-top: 2px;
-}
-
-.dark-mode .testimonial-role {
-  color: #a0aec0;
 }
 
 .testimonial-rating {
@@ -1227,15 +1199,11 @@ main > section.visible {
 
 .testimonial-comment {
   font-style: italic;
-  color: #3b82f6; /* A nice blue for light mode */
+  color: var(--accent-primary);
   font-size: 1.1rem;
   position: relative;
   /* padding: 0 15px; */ /* Padding for old quotes removed */
   margin-bottom: 10px;
-}
-
-.dark-mode .testimonial-comment {
-  color: #60a5fa; /* A lighter, more vibrant blue for dark mode */
 }
 
 /* Testimonial Form */
@@ -1246,10 +1214,6 @@ main > section.visible {
   margin-top: 30px;
   padding-top: 30px;
   border-top: 1px solid #ddd;
-}
-
-.dark-mode #testimonial-form {
-  border-top-color: #4a5568; /* Silver/gray accent */
 }
 
 /* Shared Form Styles */
@@ -1264,30 +1228,21 @@ main > section.visible {
   width: 100%;
 }
 
-.dark-mode #testimonial-form input,
-.dark-mode #testimonial-form textarea,
-.dark-mode #contact-form input,
-.dark-mode #contact-form textarea {
-  background: #1e293b; /* A darker slate blue */
-  border-color: #4a5568; /* Silver/gray accent */
-  color: #f0f0f0;
-}
-
 #testimonial-form button,
 #contact-form button {
   padding: 12px 20px;
   border: none;
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s ease;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 #testimonial-form button:hover,
 #contact-form button:hover {
-  background: #2563eb;
+  background: var(--accent-secondary);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
@@ -1320,7 +1275,7 @@ main > section.visible {
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input[type="radio"]:checked ~ label {
-  color: #3b82f6; /* Use primary blue for interactive elements */
+  color: var(--accent-primary);
 }
 
 /* ------------------- */
@@ -1370,12 +1325,9 @@ main > section.visible {
 #extras {
   text-align: center;
   padding: 80px 40px;
-  background: #eef2ff; /* A soft, light indigo/blue */
+  background: var(--bg-gradient-start); /* Use CSS variable for theme consistency */
+  color: var(--text-primary);
   position: relative;
-}
-
-.dark-mode #extras {
-  background: #1e293b; /* A dark slate blue */
 }
 
 .extras-container {
@@ -1393,7 +1345,7 @@ main > section.visible {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  background: #3b82f6;
+  background: var(--accent-primary);
   color: white;
   border: none;
   padding: 12px 14px;
@@ -1402,11 +1354,11 @@ main > section.visible {
   display: none;
   z-index: 999;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s, box-shadow 0.3s ease;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 #scrollTopBtn:hover {
-  background: #2563eb;
+  background: var(--accent-secondary);
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
@@ -1416,14 +1368,10 @@ main > section.visible {
 footer {
   text-align: center;
   padding: 80px 40px 20px; /* Increased top padding for consistent spacing */
-  background: #2563eb;
+  background: var(--footer-bg);
   color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-}
-
-.dark-mode footer {
-  background: #0f172a; /* Deep navy to match the background */
 }
 
 /* ------------------- */
@@ -1449,7 +1397,7 @@ footer {
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
@@ -1458,10 +1406,6 @@ footer {
     gap: 40px;
     transition: left 0.35s ease-in-out;
     z-index: 1000;
-  }
-
-  .dark-mode .nav-menu {
-    background: rgba(20, 30, 48, 0.98);
   }
 
   .nav-menu.active {
