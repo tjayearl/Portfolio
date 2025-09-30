@@ -86,7 +86,7 @@
              data-impact="The new website provides Jelani-Africa with a legitimate digital storefront, enhancing their brand image and making it easier for potential customers to find and contact them.">
           <div class="project-image-container">
             <a href="https://jelani-afrika.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Jelani-Africa Website">
-              <img src="images/JelaniAfrika.png" alt="Jelani-Africa Screenshot" loading="lazy" />
+              <img src="images/JelaniAfrika.png" data-full-src="images/JelaniAfrika.png" alt="Jelani-Africa Screenshot" loading="lazy" />
             </a>
             <div class="project-status-banner">In Progress</div>
             <div class="project-curtain-overlay">
@@ -107,7 +107,7 @@
              data-impact="The new website provides an attractive digital storefront for Brain Freeze, making it easier for customers to discover their menu and location, ultimately driving more foot traffic.">
           <div class="project-image-container">
             <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Brain Freeze">
-              <img src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" loading="lazy" />
+              <img src="images/Brain-Freeze.png" data-full-src="images/Brain-Freeze.png" alt="Brain Freeze Screenshot" loading="lazy" />
             </a>
             <div class="project-curtain-overlay">
               <div class="project-tags">
@@ -127,7 +127,7 @@
              data-impact="This tool provides a straightforward solution for daily task management, helping users improve productivity by focusing on what needs to get done.">
           <div class="project-image-container">
             <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of To-Do List">
-              <img src="images/todolist.png" alt="To-Do List Screenshot" loading="lazy" />
+              <img src="images/todolist.png" data-full-src="images/todolist.png" alt="To-Do List Screenshot" loading="lazy" />
             </a>
             <div class="project-curtain-overlay">
               <div class="project-tags">
@@ -147,7 +147,7 @@
              data-impact="The Expense Tracker empowers users to take control of their budget with a simple, no-frills tool, promoting better financial awareness and habits.">
           <div class="project-image-container">
             <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Expense Tracker">
-              <img src="images/expense-tracker.png" alt="Expense Tracker Screenshot" loading="lazy" />
+              <img src="images/expense-tracker.png" data-full-src="images/expense-tracker.png" alt="Expense Tracker Screenshot" loading="lazy" />
             </a>
             <div class="project-curtain-overlay">
               <div class="project-tags">
@@ -167,7 +167,7 @@
              data-impact="This project serves as a strong proof-of-concept for how modern design principles can be applied to create a visually compelling and user-friendly niche marketplace.">
           <div class="project-image-container">
             <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Machines">
-              <img src="images/Machines.png" alt="Machines Screenshot" loading="lazy" />
+              <img src="images/Machines.png" data-full-src="images/Machines.png" alt="Machines Screenshot" loading="lazy" />
             </a>
             <div class="project-curtain-overlay">
               <div class="project-tags">
@@ -187,7 +187,7 @@
              data-impact="This ongoing project is a sandbox for me to explore advanced concepts in AI, API integration, and state management in React, pushing my skills beyond traditional web development.">
           <div class="project-image-container">
             <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of E.A.R.L AI">
-              <img src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" loading="lazy" />
+              <img src="images/E.A.R.L.png" data-full-src="images/E.A.R.L.png" alt="E.A.R.L AI Screenshot" loading="lazy" />
             </a>
             <div class="project-curtain-overlay">
               <div class="project-tags">
@@ -304,34 +304,12 @@
     <section id="testimonials">
       <div class="testimonial-container">
         <h2><i class="fas fa-comments"></i> Testimonials</h2>
-        <div id="testimonial-list">
-          <div class="testimonial-card">
-            <div class="testimonial-rating">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-comment">Tjay delivered a professional and responsive website for my business. His attention to detail and commitment were outstanding.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-initials" style="background-color: #ec4899;">RG</div>
-              <div class="testimonial-author-info">
-                <span class="testimonial-name">Rachel Gitome</span>
-                <span class="testimonial-role">Founder, Jelani-Africa</span>
-              </div>
-            </div>
+        <div class="testimonial-carousel-wrapper">
+          <div id="testimonial-list">
+            <!-- Testimonials will be dynamically inserted here -->
           </div>
-          <!-- Testimonials will be dynamically inserted here -->
-          <div class="testimonial-card">
-            <div class="testimonial-rating">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-comment">Tjay is incredibly dedicated and creative. He always delivers beyond expectations.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-initials" style="background-color: #3b82f6;">PD</div>
-              <div class="testimonial-author-info">
-                <span class="testimonial-name">Peer Developer</span>
-                <span class="testimonial-role">Lead Developer, Awesome Inc.</span>
-              </div>
-            </div>
-          </div>
+          <button class="carousel-btn prev-btn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next-btn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
         </div>
         <form id="testimonial-form">
           <h3>Leave a Testimonial</h3>

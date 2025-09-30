@@ -109,7 +109,8 @@ window.addEventListener('DOMContentLoaded', () => {
     projectImages.forEach(img => {
       img.addEventListener('click', () => {
         lightbox.style.display = 'block';
-        lightboxImg.src = img.src;
+        // Use the 'data-full-src' attribute for the high-res image, fall back to src
+        lightboxImg.src = img.dataset.fullSrc || img.src;
       });
     });
 
@@ -170,6 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ========== TESTIMONIALS SECTION ==========
   const testimonialForm = document.getElementById('testimonial-form');
   const testimonialList = document.getElementById('testimonial-list');
+  let testimonialInterval; // For the auto-sliding carousel
 
   // Check for admin mode via URL parameter (e.g., ?admin=true)
   const isAdmin = () => {
@@ -233,6 +235,28 @@ window.addEventListener('DOMContentLoaded', () => {
     return starsHTML;
   };
 
+  // Function to handle "Read More" functionality
+  const initReadMore = (card) => {
+    const comment = card.querySelector('.testimonial-comment');
+    const maxLines = 3;
+    const lineHeight = parseFloat(getComputedStyle(comment).lineHeight);
+    const maxHeight = maxLines * lineHeight;
+
+    if (comment.scrollHeight > maxHeight) {
+      comment.classList.add('truncated');
+      const readMoreBtn = document.createElement('span');
+      readMoreBtn.className = 'read-more-btn';
+      readMoreBtn.textContent = 'Read More';
+      comment.parentNode.insertBefore(readMoreBtn, comment.nextSibling);
+
+      readMoreBtn.addEventListener('click', () => {
+        comment.classList.toggle('truncated');
+        const isTruncated = comment.classList.contains('truncated');
+        readMoreBtn.textContent = isTruncated ? 'Read More' : 'Read Less';
+      });
+    }
+  };
+
   // Function to handle testimonial deletion
   const deleteTestimonial = (indexToDelete) => {
     let testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
@@ -290,38 +314,91 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Observe the newly added card for the fade-in animation
     cardObserver.observe(card);
+    // Initialize "Read More" for the new card
+    initReadMore(card);
   };
 
   // Load testimonials from localStorage
   const loadTestimonials = () => {
-    const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+    let testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
     // Always clear the list to ensure a fresh render
     testimonialList.innerHTML = '';
 
-    if (testimonials.length > 0) {
-      testimonials.forEach((t, index) => addTestimonial(t, index));
-    } else {
-      // If no testimonials in storage, re-insert the default one.
-      testimonialList.innerHTML = `
-        <div class="testimonial-card">
-          <div class="testimonial-rating">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-comment">Tjay is incredibly dedicated and creative. He always delivers beyond expectations.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-initials" style="background-color: #3b82f6;">PD</div>
-            <div class="testimonial-author-info">
-              <span class="testimonial-name">Peer Developer</span>
-              <span class="testimonial-role">Lead Developer, Awesome Inc.</span>
-            </div>
-          </div>
-        </div>
-      `;
-      const defaultCard = testimonialList.querySelector('.testimonial-card');
-      if (defaultCard) {
-        cardObserver.observe(defaultCard);
+    // Define default testimonials
+    const defaultTestimonials = [
+      {
+        name: 'Rachel Gitome',
+        role: 'Founder, Jelani-Africa',
+        rating: 5,
+        comment: 'Tjay delivered a professional and responsive website for my business. His attention to detail and commitment were outstanding. He took the time to understand our needs and translated them into a digital presence that we are proud of. I highly recommend him.'
+      },
+      {
+        name: 'Peer Developer',
+        role: 'Lead Developer, Awesome Inc.',
+        rating: 5,
+        comment: 'Tjay is incredibly dedicated and creative. He always delivers beyond expectations and is a fantastic collaborator. His ability to quickly grasp complex concepts and implement clean, efficient solutions makes him a valuable asset to any team. He has a bright future ahead.'
       }
+    ];
+
+    // If no testimonials in storage, use defaults. Otherwise, prepend defaults to user-submitted ones.
+    if (testimonials.length === 0) {
+      testimonials = defaultTestimonials;
+    } else {
+      testimonials = [...defaultTestimonials, ...testimonials];
     }
+
+    testimonials.forEach((t, index) => addTestimonial(t, index));
+    initTestimonialCarousel();
+  };
+
+  // Function to initialize the testimonial carousel
+  const initTestimonialCarousel = () => {
+    const slides = testimonialList.querySelectorAll('.testimonial-card');
+    if (slides.length <= 1) return; // No need for a carousel with 1 or 0 slides
+
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    const showSlide = (index) => {
+      testimonialList.style.transform = `translateX(-${index * 100}%)`;
+    };
+
+    const nextSlide = () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    const prevSlide = () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    // Reset and start auto-slide
+    const startAutoSlide = () => {
+      clearInterval(testimonialInterval); // Clear any existing interval
+      testimonialInterval = setInterval(nextSlide, 7000); // Slide every 7 seconds
+    };
+
+    // Event Listeners for manual navigation
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoSlide(); // Reset interval on manual click
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoSlide(); // Reset interval on manual click
+    });
+
+    // Start the carousel
+    showSlide(currentIndex);
+    startAutoSlide();
+
+    // Pause on hover
+    const wrapper = document.querySelector('.testimonial-carousel-wrapper');
+    wrapper.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
+    wrapper.addEventListener('mouseleave', startAutoSlide);
   };
 
   // Handle form submission
