@@ -1093,21 +1093,15 @@ main > section.visible {
   text-align: center;
 }
 
-.testimonial-carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
 .testimonial-list {
   display: flex;
   /* flex-direction is now row (default) */
   transition: transform 0.5s ease-in-out;
+  /* No fixed width here, let flex items define it */
 }
 
 .testimonial-card {
-  flex: 0 0 100%; /* Each card takes the full width of the wrapper */
+  flex: 0 0 100%; /* Default: one card per view on mobile */
 }
 
 .testimonial-card::before {
@@ -1235,7 +1229,7 @@ main > section.visible {
 .testimonial-comment {
   font-style: italic;
   color: var(--accent-primary);
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Slightly larger to highlight the quote */
   position: relative;
   margin-bottom: 10px;
   /* Styles for truncated text */
@@ -1258,6 +1252,35 @@ main > section.visible {
 
 .read-more-btn:hover {
   text-decoration: underline;
+}
+
+/* Testimonial Dots */
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--accent-primary);
+  transform: scale(1.2);
+}
+
+/* Responsive Testimonial Cards */
+@media (min-width: 769px) { /* Tablets and up */
+  .testimonial-card {
+    flex: 0 0 50%; /* Two cards per view */
+  }
 }
 
 /* Carousel Navigation Buttons */
@@ -1283,6 +1306,12 @@ main > section.visible {
 
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
+
+@media (min-width: 1025px) { /* Desktops and up */
+  .testimonial-card {
+    flex: 0 0 33.333%; /* Three cards per view */
+  }
+}
  
 /* Testimonial Form */
 #testimonial-form {
@@ -1620,6 +1649,15 @@ footer {
 
   p {
     font-size: 0.95rem; /* Ensure body text is very readable on mobile */
+  }
+}
+@media screen and (max-width: 480px) {
+  /* Further refine testimonial text on very small screens */
+  .testimonial-comment {
+    font-size: 1.05rem;
+  }
+  .testimonial-name {
+    font-size: 1em;
   }
 }
 

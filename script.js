@@ -351,33 +351,118 @@ window.addEventListener('DOMContentLoaded', () => {
     initTestimonialCarousel();
   };
 
+  // Helper to determine how many slides should be visible
+  const getSlidesPerView = () => {
+    if (window.innerWidth <= 768) {
+      return 1;
+    } else if (window.innerWidth <= 1024) {
+      return 2;
+    } else {
+      return 3;
+    }
+  };
+
   // Function to initialize the testimonial carousel
   const initTestimonialCarousel = () => {
     const slides = testimonialList.querySelectorAll('.testimonial-card');
-    if (slides.length <= 1) return; // No need for a carousel with 1 or 0 slides
 
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const carouselWrapper = document.querySelector('.testimonial-carousel-wrapper');
+    const testimonialDotsContainer = document.querySelector('.testimonial-dots');
+
     let currentIndex = 0;
+    let slidesPerView = getSlidesPerView(); // Get initial slides per view
+    let totalPages = slides.length > slidesPerView ? (slides.length - slidesPerView + 1) : 1;
+
+    // Hide buttons and dots if not enough slides for a carousel
+    if (slides.length <= slidesPerView) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      if (testimonialDotsContainer) testimonialDotsContainer.innerHTML = '';
+      testimonialList.style.transform = 'translateX(0)'; // Ensure no offset
+      clearInterval(testimonialInterval);
+      return;
+    } else {
+      prevBtn.style.display = 'block';
+      nextBtn.style.display = 'block';
+    }
+
+    // Update slidesPerView on window resize
+    window.addEventListener('resize', () => {
+      const newSlidesPerView = getSlidesPerView();
+      if (newSlidesPerView !== slidesPerView) {
+        slidesPerView = newSlidesPerView;
+        totalPages = slides.length > slidesPerView ? (slides.length - slidesPerView + 1) : 1;
+        currentIndex = 0; // Reset to first slide on resize
+        renderDots();
+        showSlide(currentIndex);
+        startAutoSlide(); // Restart auto-slide
+      }
+    });
+
+    // --- Dots functionality ---
+    const renderDots = () => {
+      if (!testimonialDotsContainer) return;
+      testimonialDotsContainer.innerHTML = '';
+      for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === currentIndex) {
+          dot.classList.add('active');
+        }
+        dot.dataset.index = i;
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          showSlide(currentIndex);
+          startAutoSlide();
+        });
+        testimonialDotsContainer.appendChild(dot);
+      }
+    };
+
+    const updateDots = () => {
+      if (!testimonialDotsContainer) return;
+      testimonialDotsContainer.querySelectorAll('.dot').forEach((dot, i) => {
+        if (i === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    };
 
     const showSlide = (index) => {
-      testimonialList.style.transform = `translateX(-${index * 100}%)`;
+      // Ensure index is within bounds
+      if (index < 0) {
+        currentIndex = totalPages - 1;
+      } else if (index >= totalPages) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      // Calculate the translateX percentage. Each slide takes 100/slides.length % of the total width.
+      // We want to shift by `currentIndex` number of individual slides.
+      const slideWidthPercentage = 100 / slidesPerView; // Shift by the width of one visible slide
+      testimonialList.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
+      updateDots();
     };
 
     const nextSlide = () => {
-      currentIndex = (currentIndex + 1) % slides.length;
+      currentIndex = (currentIndex + 1) % totalPages;
       showSlide(currentIndex);
     };
 
     const prevSlide = () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      currentIndex = (currentIndex - 1 + totalPages) % totalPages;
       showSlide(currentIndex);
     };
 
     // Reset and start auto-slide
     const startAutoSlide = () => {
       clearInterval(testimonialInterval); // Clear any existing interval
-      testimonialInterval = setInterval(nextSlide, 7000); // Slide every 7 seconds
+      testimonialInterval = setInterval(nextSlide, 5000); // Slide every 5 seconds (4-6s range)
     };
 
     // Event Listeners for manual navigation
@@ -391,14 +476,39 @@ window.addEventListener('DOMContentLoaded', () => {
       startAutoSlide(); // Reset interval on manual click
     });
 
-    // Start the carousel
+    // Pause on hover
+    carouselWrapper.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
+    carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+
+    // --- Swipe functionality ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselWrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      clearInterval(testimonialInterval); // Pause auto-slide on touch
+    }, { passive: true });
+
+    carouselWrapper.addEventListener('touchmove', (e) => {
+      touchEndX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carouselWrapper.addEventListener('touchend', () => {
+      const swipeThreshold = 50; // Minimum pixels for a swipe
+      if (touchStartX - touchEndX > swipeThreshold) {
+        // Swiped left
+        nextSlide();
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        // Swiped right
+        prevSlide();
+      }
+      startAutoSlide(); // Resume auto-slide after swipe
+    });
+
+    // Initial render
+    renderDots();
     showSlide(currentIndex);
     startAutoSlide();
-
-    // Pause on hover
-    const wrapper = document.querySelector('.testimonial-carousel-wrapper');
-    wrapper.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
-    wrapper.addEventListener('mouseleave', startAutoSlide);
   };
 
   // Handle form submission
