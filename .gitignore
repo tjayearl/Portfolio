@@ -1,0 +1,27 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Documents & personal files
+*.pdf
+
+# Installers & archives
+*.exe
+*.tar.gz
+*.zip
+*.rar
+*.torrent
+
+# Ignore ALL images by default
+*.png
+*.jpg
+*.jpeg
+*.JPG
+
+# But allow images inside the images folder
+!images/
+!images/**
+
+# Future-proof
+node_modules/
+.env
