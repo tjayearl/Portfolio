@@ -25,7 +25,6 @@
       <div class="nav-actions">
         <div class="social-icons">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="My Facebook Profile"><i class="fab fa-facebook"></i></a>
           <a href="https://www.linkedin.com/in/tjay-earl" target="_blank" rel="noopener noreferrer" aria-label="My LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
         </div>
@@ -339,7 +338,7 @@
             <h3>Software Engineering</h3>
             <h4>Moringa School</h4>
             <p>Completed an intensive, full-time software engineering program focused on building full-stack applications with modern technologies. The curriculum covered fundamental computer science concepts, front-end development with JavaScript frameworks, and back-end development with Ruby on Rails.</p>
-            <a href="images/Tjay Earl Completion Letter (1).pdf" download="Tjay-Earl-Moringa-Completion-Letter.pdf" class="cta-button">Download Letter</a>
+            <a href="images/certificate.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">View Certificate</a>
           </div>
         </div>
       </div>
@@ -396,7 +395,7 @@
     <div class="extras-container">
       <a href="resume.html" class="cta-button">View Resume</a>
       <a href="cv.html" class="cta-button">View CV</a>
-      <a href="https://blog-seven-phi-zlmj7ushe9.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-button">Visit My Blog</a>
+      <a href="#" id="visit-blog-btn" class="cta-button">Visit My Blog</a>
     </div>
   </section>
 
@@ -408,6 +407,7 @@
       <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a>
     </div>
     <p>&copy; 2025 Tjay Earl. All rights reserved.</p>
+    <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem; opacity: 0.8;">Built with intention.<br>— Tjay Earl</p>
   </footer>
 
   <!-- Floating WhatsApp Button -->
@@ -436,6 +436,18 @@
       <div id="modal-description" class="project-description-list"></div>
       <div id="modal-links" class="project-footer-links"></div>
 
+    </div>
+  </div>
+
+  <!-- Blog Disclaimer Modal -->
+  <div id="blog-disclaimer-modal" class="modal">
+    <div class="modal-content" style="text-align: center; max-width: 500px;">
+      <h3><i class="fas fa-info-circle"></i> Beta Notice</h3>
+      <p style="margin: 20px 0; line-height: 1.6;">Please note that the content in the blog is factual. The blog is still in production and what you are about to see is a beta of a blog.</p>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
+        <button id="proceed-blog-btn" class="cta-button" style="border: none; cursor: pointer; margin-top: 0;">Proceed</button>
+        <button id="cancel-blog-btn" class="cta-button" style="background-color: #6b7280; border: none; cursor: pointer; margin-top: 0;">Return to Portfolio</button>
+      </div>
     </div>
   </div>
 

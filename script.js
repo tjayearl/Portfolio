@@ -238,6 +238,35 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========== BLOG DISCLAIMER MODAL ==========
+  const blogBtn = document.getElementById('visit-blog-btn');
+  const blogModal = document.getElementById('blog-disclaimer-modal');
+  const proceedBtn = document.getElementById('proceed-blog-btn');
+  const cancelBtn = document.getElementById('cancel-blog-btn');
+  const blogUrl = "https://blog-seven-phi-zlmj7ushe9.vercel.app/";
+
+  if (blogBtn && blogModal && proceedBtn && cancelBtn) {
+    blogBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      blogModal.style.display = 'block';
+    });
+
+    proceedBtn.addEventListener('click', () => {
+      window.open(blogUrl, '_blank');
+      blogModal.style.display = 'none';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      blogModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === blogModal) {
+        blogModal.style.display = 'none';
+      }
+    });
+  }
+
   // ========== SCROLL-IN ANIMATIONS FOR SECTIONS ==========
   const animatedElements = document.querySelectorAll('main > section, .project-card');
 
