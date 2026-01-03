@@ -269,7 +269,7 @@ header#hero {
   /* New styles for the card effect */
   color: white; /* Ensure text is white */
   background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)),
-              url('Port.png') no-repeat center center/cover;
+              url('images/Port.png') no-repeat center center/cover;
   background-attachment: fixed; /* Creates a nice parallax effect on scroll */
   border-radius: 0 0 25px 25px; /* Rounded bottom corners for a modern, full-width look */
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
