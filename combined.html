@@ -26,7 +26,7 @@
   <div class="resume-container">
     <div class="resume-actions">
       <a href="index.html" class="back-to-portfolio-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-      <button id="download-btn" class="download-pdf-btn"><i class="fas fa-download"></i> Download PDF</button>
+      <a href="TJAY_EARL_CV.pdf" class="download-pdf-btn" download><i class="fas fa-download"></i> Download PDF</a>
     </div>
     <div class="resume-content">
       <div class="resume-header">
@@ -158,12 +158,6 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
-      }
-
-      // Add print functionality to the download button
-      const downloadBtn = document.getElementById('download-btn');
-      if (downloadBtn) {
-        downloadBtn.addEventListener('click', () => window.print());
       }
     })();
   </script>
