@@ -293,6 +293,36 @@ section {
   letter-spacing: 0.05em;
 }
 
+.for-sale-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1rem;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--accent-secondary);
+  color: var(--text-ink);
+  border-radius: 4px;
+}
+
+.demo-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1rem;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--accent-tertiary);
+  color: var(--bg-parchment);
+  border-radius: 4px;
+}
+
 .project-preview {
   margin-bottom: 1rem;
   font-size: 1.1rem;
