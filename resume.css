@@ -388,3 +388,62 @@ li {
 .dark-mode .project-item h4 {
   color: #f0f0f0;
 }
+
+/* --- CV Dark Mode Override --- */
+/* Ensure CV sections have a white background for readability, even in dark mode. */
+
+.dark-mode .cv-container,
+.dark-mode .cv-content {
+    background: white;
+    color: #1a1a1a; /* Reset base text color to dark */
+}
+
+/* For combined.html, style the CV content as a distinct card */
+.dark-mode .cv-content {
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+}
+
+/* Reset heading colors inside CV sections */
+.dark-mode .cv-container h1,
+.dark-mode .cv-content h1 {
+    color: #1a1a1a;
+}
+
+.dark-mode .cv-container h2,
+.dark-mode .cv-content h2 {
+    color: #555;
+}
+
+.dark-mode .cv-container h3,
+.dark-mode .cv-content h3 {
+    color: #0056b3;
+    border-bottom-color: #3b82f6;
+}
+
+.dark-mode .cv-container .project-item h4,
+.dark-mode .cv-content .project-item h4 {
+    color: #333;
+}
+
+/* Reset link colors inside CV sections */
+.dark-mode .cv-container a,
+.dark-mode .cv-content a {
+    color: #3b82f6; /* Default blue for links */
+}
+.dark-mode .cv-container a:hover,
+.dark-mode .cv-content a:hover {
+    text-decoration: underline;
+}
+
+/* Override for contact links to be grey, not blue */
+.dark-mode .cv-container .contact-info a,
+.dark-mode .cv-content .contact-info a {
+    color: #444;
+    text-decoration: none;
+}
+.dark-mode .cv-container .contact-info a:hover,
+.dark-mode .cv-content .contact-info a:hover {
+    color: #3b82f6;
+}
