@@ -1,462 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tjay Earl's creative and modern portfolio." />
-  <title>Tjay Earl | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tjay Earl — Product-Minded Full Stack Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-  <nav class="navbar">
-    <h1 class="logo">Tjay Earl</h1>
-    <button class="hamburger" id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="nav-menu">
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://wa.me/254115633640?text=Hi%20Tjay,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99d%20love%20to%20connect." target="_blank" rel="noopener noreferrer" class="nav-whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-      </ul>
-      <div class="nav-actions">
-        <div class="social-icons">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="My Instagram Profile"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/tjay-earl" target="_blank" rel="noopener noreferrer" aria-label="My LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/tjayearl" target="_blank" rel="noopener noreferrer" aria-label="My GitHub Profile"><i class="fab fa-github"></i></a>
-        </div>
-        <label for="toggle-theme" class="theme-switch">
-          <input type="checkbox" id="toggle-theme">
-          <span class="slider"></span>
-        </label>
-      </div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="#home" aria-label="Home"><i class="fas fa-home"></i></a>
+        <a href="#about" aria-label="About"><i class="fas fa-user"></i></a>
+        <a href="#projects" aria-label="Projects"><i class="fas fa-scroll"></i></a>
+        <a href="#education" aria-label="Education"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#skills" aria-label="Skills"><i class="fas fa-tools"></i></a>
+        <a href="#contact" aria-label="Contact"><i class="fas fa-paper-plane"></i></a>
+    </nav>
+
+    <!-- 2. ENTRY EXPERIENCE (THE PROLOGUE) -->
+    <div id="prologue">
+        <h1 class="prologue-name">Tjay Earl</h1>
+        <p class="prologue-subtitle">Product-minded. System-driven.</p>
     </div>
-  </nav>
 
-  <header id="hero">
-    <div class="hero-container">
-      <div class="hero-text">
-        <h2>Hi, I'm Tjay Earl</h2>
-        <p>A tech-driven Project Manager passionate about planning, organizing, and leading teams to deliver impactful digital solutions.</p>
-        <a href="https://wa.me/254115633640?text=Hi%20Tjay,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99d%20love%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener noreferrer" class="cta-button whatsapp-hero-btn">
-          <i class="fab fa-whatsapp"></i> Work with me
-        </a>
-        <div style="margin-top: 20px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
-          <i class="fas fa-check-circle" style="color: #25D366; margin-right: 8px;"></i>Coordinated multiple web and app projects from concept to completion.
-        </div>
-      </div>
-      <img src="images/Heritage.png" alt="Tjay Earl" class="profile-img" loading="lazy" />
-      <!-- Contact form has been moved back to the contact section -->
-    </div>
-  </header>
-
-  <main>
-    <section id="about">
-      <h2><i class="fas fa-user-circle"></i> About Me</h2>
-      <div class="about-container">
-        <div class="about-text">
-          <p>I transitioned from web development into project management because I enjoy turning ideas into organized, successful outcomes. I take pride in creating plans, assigning responsibilities, and ensuring projects are completed on time and within scope.</p>
-          <p>My foundation in software development (HTML, CSS, JavaScript, and React) gives me a significant advantage, as I understand both the technical and managerial sides of a project. This allows me to bridge the gap between stakeholders and development teams, ensuring clear communication and efficient delivery.</p>
-          <blockquote class="motto">
-            "Code is like humor. When you have to explain it, it’s bad." – Cory House
-          </blockquote>
-          <div class="future-goals-box">
-            <h4>Future Goals</h4>
-            <p>I'm currently deepening my expertise in backend development with Python and exploring advanced concepts in cloud deployment. My next major project goal is to build a comprehensive, multi-user web application that integrates a machine learning model to provide personalized user experiences.</p>
-          </div>
-        </div>
-        <img src="images/grad3.JPG" alt="Tjay Earl working" class="about-image" loading="lazy">
-      </div>
-    </section>
-
-    <section id="process">
-      <h2><i class="fas fa-clipboard-list"></i> My Project Management Process</h2>
-      <div class="process-container">
-        <div class="process-step">
-          <div class="step-number">1</div>
-          <h4>Define & Plan</h4>
-          <p>Clearly define project goals, deliverables, and scope. Then, break down tasks and create a detailed roadmap.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">2</div>
-          <h4>Assign & Execute</h4>
-          <p>Assign responsibilities to team members and set clear, achievable deadlines to begin execution.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">3</div>
-          <h4>Track & Communicate</h4>
-          <p>Monitor progress using tools like Trello, Notion, or GitHub Projects, ensuring transparent communication with all stakeholders.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">4</div>
-          <h4>Review & Deliver</h4>
-          <p>Conduct thorough quality reviews and testing before delivering the final product, ensuring it meets all objectives.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2><i class="fas fa-project-diagram"></i> Managed Projects (Case Studies)</h2>
-      <div class="project-filters">
-        <button data-filter="all" class="active">All Projects</button>
-        <button data-filter="client">Client Work</button>
-        <button data-filter="personal">Personal Projects</button>
-        <button data-filter="web">Websites</button>
-        <button data-filter="tools">Apps/Tools</button>
-      </div>
-      <div class="projects-container">
-        <div class="project-card" data-category="tools" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Create a comprehensive financial dashboard for tracking income, expenses, and savings goals."
-             data-solution="<strong>My Role:</strong> Defined the product roadmap, designed the UI/UX, and developed the frontend using HTML, CSS, and JavaScript. Implemented data visualization for better financial insights. The backend is currently a work in progress, primarily using Python."
-             data-impact="<strong>Outcome:</strong> A responsive and interactive dashboard that helps users make informed financial decisions through clear data presentation.">
-          <div class="project-image-container">
-            <a href="https://balance-iq-gamma.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of BalanceIQ">
-              <img src="images/BalanceIQ.png" data-full-src="images/BalanceIQ.png" alt="BalanceIQ Screenshot" loading="lazy" />
-            </a>
-            <div class="project-status-banner">In Progress</div>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="https://balance-iq-gamma.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+    <!-- MAIN CONTENT (THE MANUSCRIPT) -->
+    <main id="manuscript" class="manuscript">
+        
+        <!-- 3. HOMEPAGE -->
+        <section id="home" class="hero">
+            <div class="container">
+                <p class="identity-statement">The Manuscript Opens</p>
+                <p class="status-line">
+                    <i class="fas fa-circle" style="font-size: 0.6rem; margin-right: 5px;"></i> Currently open to opportunities
+                </p>
+                <h1 class="headline">I turn unclear problems into structured solutions.</h1>
+                <p class="subtext">I care about users, constraints, and outcomes.<br>Full Stack builder thinking in tradeoffs, not just features.</p>
+                <a href="#projects" class="cta-button">View Campaigns</a>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>BalanceIQ</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-        <div class="project-card" data-category="web" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Create a colorful, user-friendly e-commerce site for an ice cream brand."
-             data-solution="<strong>My Role:</strong> Planned project milestones, managed content creation and frontend structure, coordinated testing and feature rollout."
-             data-impact="<strong>Outcome:</strong> Delivered a responsive website with product categories, checkout flow, and smooth user experience.">
-          <div class="project-image-container">
-            <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Brain Freeze">
-              <img src="images/BrainFreeze.png" data-full-src="images/BrainFreeze.png" alt="Brain Freeze Screenshot" loading="lazy" />
-            </a>
-            <div class="project-status-banner">Demo Version</div>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="https://brain-freeze-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+        </section>
+
+        <!-- 4. ABOUT SECTION -->
+        <section id="about">
+            <div class="container">
+                <span class="section-title"><span class="drop-cap">T</span>he Chronicler</span>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I’m Tjay Earl, a full stack software engineer evolving into a product manager. I care about how decisions shape products over time, not just the code that builds them.</p>
+                        <p>I’m drawn to systems, tradeoffs, and user behavior — not just features. I enjoy turning messy ideas into clear, usable products by asking "why" before "how".</p>
+                        <p>My long-term goal is to build and lead products that scale thoughtfully, balancing design, engineering, and business needs.</p>
+                        <br>
+                        <a href="cv.html" class="project-link">View CV / CV &rarr;</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/grad3.JPG" alt="Tjay Earl Portrait" loading="lazy">
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>Brain Freeze</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-        <div class="project-card" data-category="tools" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Develop a minimalist to-do list application for simple, daily task tracking."
--             data-solution="<strong>My Role:</strong> I defined the core features (add, delete, complete), designed the minimalist UI/UX, and built the application using React. I prioritized a clean, distraction-free interface."
-             data-impact="<strong>Outcome:</strong> A straightforward and intuitive tool that improves productivity by focusing on essential task management functionalities.">
-          <div class="project-image-container">
-            <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of To-Do List">
-              <img src="images/todolist.png" data-full-src="images/todolist.png" alt="To-Do List Screenshot" loading="lazy" />
-            </a>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>React</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="https://todolist-smoky-zeta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+        </section>
+
+        <!-- 5. PROJECTS SECTION (THE CAMPAIGNS) -->
+        <section id="projects">
+            <div class="container">
+                <span class="section-title"><span class="drop-cap">C</span>ampaigns</span>
+                <div class="projects-grid">
+
+                    <!-- Project 1: BalanceIQ -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">BalanceIQ (Demo)</h3>
+                            <span class="project-role">Full Stack + Product Thinking</span>
+                        </div>
+                        <div class="project-preview">
+                            <p><strong>The Problem:</strong> Users struggled to track debt, taxes, and spending in one unified view.</p>
+                        </div>
+                        <div class="scroll-details">
+                            <div class="case-study-grid">
+                                <div class="cs-block">
+                                    <h4>Constraints</h4>
+                                    <p>Zero backend budget; required local storage and client-side logic only.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Decisions</h4>
+                                    <p>Prioritized a high-level dashboard over granular transaction logs to reduce cognitive load.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Outcome</h4>
+                                    <p>A responsive tool enabling informed financial decisions without data privacy risks.</p>
+                                </div>
+                            </div>
+                            <a href="https://balance-iq-gamma.vercel.app/" target="_blank" class="project-link">View Live &rarr;</a>
+                            <span class="marginal-note">
+                                “This project taught me that user privacy can be a feature, not just a constraint.”
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Machines -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Machines</h3>
+                            <span class="project-role">Full Stack Architecture</span>
+                        </div>
+                        <div class="project-preview">
+                            <p><strong>The Problem:</strong> Vehicle marketplaces often lack clean, modern interfaces for inventory management.</p>
+                        </div>
+                        <div class="scroll-details">
+                            <div class="case-study-grid">
+                                <div class="cs-block">
+                                    <h4>Constraints</h4>
+                                    <p>Strict timeline; needed to simulate complex DB relationships on frontend.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Decisions</h4>
+                                    <p>Structured development into sprints to ensure core CRUD functionality was robust before styling.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Outcome</h4>
+                                    <p>Functional prototype simulating real-world listing management with zero latency.</p>
+                                </div>
+                            </div>
+                            <a href="https://tjayearl.github.io/Machine/" target="_blank" class="project-link">View Live &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Brain Freeze -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Brain Freeze</h3>
+                            <span class="project-role">UX & Development</span>
+                        </div>
+                        <div class="project-preview">
+                            <p><strong>The Problem:</strong> Local brand needed a digital presence that matched their vibrant physical identity.</p>
+                        </div>
+                        <div class="scroll-details">
+                            <div class="case-study-grid">
+                                <div class="cs-block">
+                                    <h4>Constraints</h4>
+                                    <p>Mobile-first audience; assets needed to be lightweight despite high visual impact.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Decisions</h4>
+                                    <p>Focused on color theory and playful CSS interactions instead of heavy JS animations.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>Outcome</h4>
+                                    <p>Responsive e-commerce site with smooth user flow and < 1s load time.</p>
+                                </div>
+                            </div>
+                            <a href="https://brain-freeze-nine.vercel.app/" target="_blank" class="project-link">View Live &rarr;</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>To-Do List</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-        <div class="project-card" data-category="tools" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Build a lightweight expense tracker for clear visualization of income versus expenses."
-             data-solution="<strong>My Role:</strong> I outlined the project requirements, focusing on simplicity and core functionality. I managed the development process, ensuring the final product had an intuitive interface for logging transactions and viewing balances."
-             data-impact="<strong>Outcome:</strong> A simple, no-frills tool that empowers users to take control of their budget and promotes better financial awareness.">
-          <div class="project-image-container">
-            <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Expense Tracker">
-              <img src="images/expense-tracker.png" data-full-src="images/expense-tracker.png" alt="Expense Tracker Screenshot" loading="lazy" />
-            </a>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="https://expense-tracker-beta-brown.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+        </section>
+
+        <!-- 6. EDUCATION SECTION (ACADEMIC CHRONICLE) -->
+        <section id="education">
+            <div class="container">
+                <span class="section-title"><span class="drop-cap">A</span>cademic Chronicle</span>
+                
+                <div class="education-timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Nov 2025</span>
+                            <h3 class="timeline-institution">Moringa School</h3>
+                            <h4 class="timeline-degree">Software Engineering Bootcamp</h4>
+                            <span class="marginal-note">“Where I learned that code is just a tool for solving human problems.”</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2024</span>
+                            <h3 class="timeline-institution">Weithaga Boys High School</h3>
+                            <h4 class="timeline-degree">High School Diploma</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>Expense Tracker</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-        <div class="project-card" data-category="web" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Build an online marketplace for buying and selling vehicles."
-             data-solution="<strong>My Role:</strong> Defined project scope, structured team tasks (as a solo project, this meant breaking down development into manageable sprints), tracked progress, and ensured CRUD operations and event listeners functioned correctly."
-             data-impact="<strong>Outcome:</strong> Completed a full frontend prototype simulating real-world product listing, purchase, and management features.">
-          <div class="project-image-container">
-            <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Machines">
-              <img src="images/Machines.png" data-full-src="images/Machines.png" alt="Machines Screenshot" loading="lazy" />
-            </a>
-            <div class="project-status-banner">Demo Version</div>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="https://tjayearl.github.io/Machine/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+        </section>
+
+        <!-- 7. SKILLS SECTION (THE GUILD) -->
+        <section id="skills">
+            <div class="container">
+                <span class="section-title"><span class="drop-cap">G</span>uild Skills</span>
+                
+                <div class="skills-intro">
+                    <p class="skills-subtitle">A map of what I use to think, build, and communicate.</p>
+                    <p class="skills-philosophy">“I value transferable skills over tools. Technologies change — systems thinking doesn’t.”</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Guild 1: Product & Strategy -->
+                    <div class="skill-category">
+                        <div class="guild-header">
+                            <span class="guild-icon">🜂</span>
+                            <h3>Product & Strategy</h3>
+                        </div>
+                        <p class="guild-desc">How I think and decide</p>
+                        <ul>
+                            <li>Product thinking</li>
+                            <li>Problem framing</li>
+                            <li>SaaS fundamentals</li>
+                            <li>User-centered design</li>
+                            <li>Feature prioritization</li>
+                            <li>Writing product narratives</li>
+                        </ul>
+                    </div>
+
+                    <!-- Guild 2: Frontend Engineering -->
+                    <div class="skill-category">
+                        <div class="guild-header">
+                            <span class="guild-icon">🜁</span>
+                            <h3>Frontend Engineering</h3>
+                        </div>
+                        <p class="guild-desc">How I build interfaces</p>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                            <li>TypeScript</li>
+                        </ul>
+                    </div>
+
+                    <!-- Guild 3: Backend & Systems -->
+                    <div class="skill-category">
+                        <div class="guild-header">
+                            <span class="guild-icon">🜃</span>
+                            <h3>Backend & Systems</h3>
+                        </div>
+                        <p class="guild-desc">How things work behind the scenes</p>
+                        <ul>
+                            <li>Python</li>
+                            <li>Ruby on Rails</li>
+                            <li>APIs & data flow</li>
+                            <li>Basic system design concepts</li>
+                        </ul>
+                    </div>
+
+                    <!-- Guild 4: Writing & Communication -->
+                    <div class="skill-category">
+                        <div class="guild-header">
+                            <span class="guild-icon">🜄</span>
+                            <h3>Writing & Communication</h3>
+                        </div>
+                        <p class="guild-desc">How I explain and align</p>
+                        <ul>
+                            <li>Technical writing</li>
+                            <li>Product documentation</li>
+                            <li>Clear UX copy</li>
+                            <li>Structured thinking in writing</li>
+                        </ul>
+                    </div>
+
+                    <!-- Guild 5: Tools & Workflow -->
+                    <div class="skill-category">
+                        <div class="guild-header">
+                            <span class="guild-icon">🜔</span>
+                            <h3>Tools & Workflow</h3>
+                        </div>
+                        <p class="guild-desc">How I actually ship</p>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Version control</li>
+                            <li>VS Code</li>
+                            <li>Debugging</li>
+                            <li>Iterative development</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>Machines</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-        <div class="project-card" data-category="tools" data-type="personal"
-             data-challenge="<strong>Goal:</strong> Create a free, reliable, and personalized AI assistant inspired by J.A.R.V.I.S."
-             data-solution="<strong>My Role:</strong> I am managing this ongoing personal project by defining the development roadmap and building the application using HTML, CSS, and extensive JavaScript. The backend was created using 100% Python. I am tracking milestones for UI development and future API connections."
-             data-impact="<strong>Outcome:</strong> This project serves as a sandbox for managing a complex, long-term build while exploring advanced concepts in AI, API integration, and state management.">
-          <div class="project-image-container">
-            <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View live demo of E.A.R.L AI">
-              <img src="images/Earl.AI.png" data-full-src="images/Earl.AI.png" alt="E.A.R.L AI Screenshot" loading="lazy" />
-            </a>
-            <div class="project-status-banner">In Progress</div>
-            <div class="project-curtain-overlay">
-              <div class="project-tags">
-                <span>JavaScript</span><span>HTML</span><span>CSS</span><span>Python</span>
-              </div>
-              <a href="https://earl-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view-project" data-tooltip="Open Live Demo"><i class="fas fa-eye"></i> View Project</a>
+        </section>
+
+        <!-- 8. VALUES (DOCTRINE) -->
+        <section id="values">
+            <div class="container">
+                <ul class="values-list">
+                    <li>Build for users, not ego</li>
+                    <li>Clarity beats complexity</li>
+                    <li>Systems &gt; Features</li>
+                    <li>Learn, Iterate, Refine</li>
+                </ul>
             </div>
-          </div>
-          <div class="project-info-footer">
-            <h3>E.A.R.L AI</h3>
-            <a href="#" class="learn-more-link">Learn More <i class="fas fa-chevron-down"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="skills">
-      <h2><i class="fas fa-cogs"></i> Skills</h2>
-      <div class="skills-grid">
-        <div class="skills-category">
-          <h3><i class="fas fa-tasks"></i> Project Management</h3>
-          <ul>
-            <li>Project Planning & Coordination</li>
-            <li>Agile / Scrum Basics</li>
-            <li>Task & Resource Management</li>
-            <li>Communication & Leadership</li>
-            <li>Problem Solving & Risk Management</li>
-          </ul>
-        </div>
-        <div class="skills-category">
-          <h3><i class="fas fa-code"></i> Technical Foundation</h3>
-          <p>My background in development gives me a practical understanding of the technologies used in modern web projects.</p>
-        </div>
-      </div>
-      <div class="skills-container">
-        <div class="skill-card" data-skill-level="90">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>HTML</span></div>
-          </div>
-          <span>HTML</span>
-        </div>
-        <div class="skill-card" data-skill-level="85">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>CSS</span></div>
-          </div>
-          <span>CSS</span>
-        </div>
-        <div class="skill-card" data-skill-level="80">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>JS</span></div>
-          </div>
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-card" data-skill-level="75">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>Python</span></div>
-          </div>
-          <span>Python</span>
-        </div>
-        <div class="skill-card" data-skill-level="70">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>TS</span></div>
-          </div>
-          <span>TypeScript</span>
-        </div>
-        <div class="skill-card" data-skill-level="80">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>SASS</span></div>
-          </div>
-          <span>SASS</span>
-        </div>
-        <div class="skill-card" data-skill-level="65">
-          <div class="skill-circle-container">
-            <svg class="skill-circle" viewBox="0 0 120 120">
-              <circle class="skill-circle-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="skill-circle-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
-            <div class="skill-icon-wrapper"><span>Rails</span></div>
-          </div>
-          <span>Rails</span>
-        </div>
-      </div>
-    </section>
+        <!-- 9. CONTACT (SEND A RAVEN) -->
+        <section id="contact" class="contact-section" aria-label="Send a Raven">
+            <div class="container">
+                <p class="contact-intro">If you’re building something thoughtful, let’s talk.</p>
+                <div class="contact-links">
+                    <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a>
+                    <a href="https://github.com/tjayearl" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/tjay-earl" target="_blank">LinkedIn</a>
+                </div>
 
-    <section id="certifications">
-      <h2><i class="fas fa-award"></i> Certifications</h2>
-      <div class="certifications-container">
-        <div class="certification-card">
-          <div class="certification-badge">
-            <div class="badge-icon"><i class="fas fa-graduation-cap"></i></div>
-          </div>
-          <div class="certification-info">
-            <h3>Software Engineering</h3>
-            <h4>Moringa School</h4>
-            <p>Completed an intensive, full-time software engineering program focused on building full-stack applications with modern technologies. The curriculum covered fundamental computer science concepts, front-end development with JavaScript frameworks, and back-end development with Ruby on Rails.</p>
-            <a href="images/certificate.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </section>
+                <div class="whatsapp-contact">
+                    <a href="https://wa.me/254115633640?text=Hi%20Tjay%2C%20I%20came%20across%20your%20portfolio%20and%20wanted%20to%20talk." target="_blank" class="whatsapp-cta" aria-label="Open a conversation on WhatsApp">
+                        Open a conversation
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <p class="microcopy">For formal communication. An alternative to email.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="approach">
-      <h2><i class="fas fa-lightbulb"></i> My Approach</h2>
-      <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-          <p style="font-size: 1.1rem; line-height: 1.6; font-style: italic; max-width: 800px; margin: 0 auto;">
-            “I focus on building projects that are easy to understand, scalable, and realistic for real-world use. As a junior developer, I value clarity over complexity and prefer writing code that I can explain confidently.”
-          </p>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left;">
-          <div>
-            <h3><i class="fas fa-code"></i> Simple & Readable</h3>
-            <p>I believe code should be self-explanatory. I keep my logic simple and structure clean to ensure maintainability and ease of debugging.</p>
-          </div>
-          <div>
-            <h3><i class="fas fa-cogs"></i> Functionality First</h3>
-            <p>A pretty interface means nothing if the app doesn't work. I prioritize core functionality and user experience before polishing the UI.</p>
-          </div>
-          <div>
-            <h3><i class="fas fa-layer-group"></i> Intentional Design</h3>
-            <p>Every feature I build has a purpose. Some projects are minimal or evolving because I focus on what's essential for the user right now.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </main>
 
-
-
-    <section id="contact">
-      <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
-      <div class="contact-container simplified-contact">
-        <h3>Let’s Work Together!</h3>
-        <p>Message me on WhatsApp for quick responses.</p>
-        <a href="https://wa.me/254115633640?text=Hi%20Tjay,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99d%20love%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener noreferrer" class="cta-button whatsapp-contact-btn">
-          <i class="fab fa-whatsapp"></i> Message me on WhatsApp
-        </a>
-        <div class="availability-note">
-          <p><i class="fas fa-clock"></i> I usually reply within a few hours.</p>
-        </div>
-        <div class="email-option">
-          <p>Or, if you prefer to email me: <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a></p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <section id="extras">
-    <h2><i class="fas fa-plus-circle"></i> Extras</h2>
-    <div class="extras-container">
-      <!-- <a href="resume.html" class="cta-button">View Resume</a> -->
-      <a href="TJAY%20EARL_CV.pdf" class="cta-button" target="_blank">View CV</a>
-      <a href="#" id="visit-blog-btn" class="cta-button">Visit My Blog</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-whatsapp">
-      <a href="https://wa.me/254115633640?text=Hi%20Tjay,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99d%20love%20to%20connect." target="_blank" rel="noopener noreferrer">📱 Chat with me on WhatsApp</a>
-    </div>
-    <div class="footer-email">
-      <a href="mailto:iamtjayearl@gmail.com">iamtjayearl@gmail.com</a>
-    </div>
-    <p>&copy; 2025 Tjay Earl. All rights reserved.</p>
-    <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem; opacity: 0.8;">Built with intention.<br>— Tjay Earl</p>
-  </footer>
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/254115633640?text=Hi%20Tjay,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99d%20love%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <button id="scrollTopBtn">↑</button>
-
-  <!-- Modal for Case Studies -->
-  <div id="case-study-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal-btn">&times;</span>
-      <h2 id="modal-title"></h2>
-      <div id="modal-tags" class="project-tags"></div>
-
-      <h3>The Challenge</h3>
-      <p id="modal-challenge"></p>
-
-      <h3>My Solution</h3>
-      <p id="modal-solution"></p>
-
-      <h3>Impact</h3>
-      <p id="modal-impact"></p>
-
-      <div id="modal-achievements" class="achievement-badges"></div>
-      <div id="modal-description" class="project-description-list"></div>
-      <div id="modal-links" class="project-footer-links"></div>
-
-    </div>
-  </div>
-
-  <!-- Blog Disclaimer Modal -->
-  <div id="blog-disclaimer-modal" class="modal">
-    <div class="modal-content" style="text-align: center; max-width: 500px;">
-      <h3><i class="fas fa-info-circle"></i> Beta Notice</h3>
-      <p style="margin: 20px 0; line-height: 1.6;">Please note that the content in the blog is factual. The blog is still in production and what you are about to see is a beta of a blog.</p>
-      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
-        <button id="proceed-blog-btn" class="cta-button" style="border: none; cursor: pointer; margin-top: 0;">Proceed</button>
-        <button id="cancel-blog-btn" class="cta-button" style="background-color: #6b7280; border: none; cursor: pointer; margin-top: 0;">Return to Portfolio</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox for Full-Screen Image Preview -->
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
