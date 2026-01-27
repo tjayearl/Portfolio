@@ -285,7 +285,7 @@ li {
   }
 
   /* --- Hide UI Elements --- */
-  .resume-actions {
+  .resume-actions, .resume-footer {
     display: none;
   }
 
@@ -389,6 +389,20 @@ li {
   color: #f0f0f0;
 }
 
+/* Footer */
+.resume-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.resume-footer p {
+  margin: 0.2rem 0;
+}
+
 /* --- CV Dark Mode Override --- */
 /* Ensure CV sections have a white background for readability, even in dark mode. */
 
@@ -446,4 +460,9 @@ li {
 .dark-mode .cv-container .contact-info a:hover,
 .dark-mode .cv-content .contact-info a:hover {
     color: #3b82f6;
+}
+
+.dark-mode .resume-footer {
+  border-top-color: #4a5568;
+  color: #a0aec0;
 }
