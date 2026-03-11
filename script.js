@@ -1,3 +1,16 @@
+// Toggle scroll cards (replaces old project card logic)
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+
+  // Close all others first
+  document.querySelectorAll('.scroll-card.open').forEach(c => {
+    if (c.id !== id) c.classList.remove('open');
+  });
+
+  card.classList.toggle('open', !isOpen);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Prologue / Intro Logic
     const prologue = document.getElementById('prologue');
@@ -52,13 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Mobile Project Card Tap Logic
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') return; // Allow links to work
-            this.classList.toggle('expanded');
-        });
+    // 3. Scroll Card Logic
+    // Keyboard accessibility
+    document.querySelectorAll('.scroll-preview').forEach(preview => {
+      preview.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          preview.click();
+        }
+      });
     });
 
     // 4. Scroll Animations (Fade-in sections)
