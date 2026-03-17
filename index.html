@@ -73,6 +73,41 @@
     <span class="section-title"><span class="drop-cap">C</span>ampaigns</span>
     <div class="projects-grid">
 
+      <!-- Product Teardown -->
+      <div class="scroll-card" id="card-teardown">
+        <div class="scroll-body">
+          <div class="scroll-preview" onclick="toggleCard('card-teardown')" tabindex="0" role="button">
+            <div class="preview-left">
+              <div class="project-meta">
+                <span class="project-number">✦</span>
+                <span class="project-role-tag">Product Strategy</span>
+              </div>
+              <h3 class="project-title">Product Teardown: [Kenyan Startup]</h3>
+              <p class="project-problem"><strong>The Challenge:</strong> Analyze a successful product to identify growth opportunities and user experience friction points.</p>
+            </div>
+            <div class="scroll-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="scroll-divider">
+            <div class="divider-line"></div>
+            <div class="wax-seal">✦</div>
+            <div class="divider-line"></div>
+          </div>
+          <div class="scroll-details-wrap">
+            <div class="scroll-details">
+              <div class="case-study-grid">
+                <div class="cs-block"><h4>Goal</h4><p>To demonstrate strategic thinking by deconstructing a real-world product and proposing actionable improvements.</p></div>
+                <div class="cs-block"><h4>Method</h4><p>Analysis of the user journey, market positioning, and feature set to identify key strengths and weaknesses.</p></div>
+                <div class="cs-block"><h4>Proposed Outcome</h4><p>A set of prioritized recommendations to increase user engagement, retention, or conversion for the target product.</p></div>
+              </div>
+              <div class="scroll-footer">
+                <span class="marginal-note">"This case study is a work in progress."</span>
+                <a href="#" class="project-link">Read the Teardown (Coming Soon) &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- E.A.R.L AI -->
       <div class="scroll-card" id="card-earl">
         <div class="scroll-body">
@@ -115,7 +150,7 @@
             <div class="preview-left">
               <div class="project-meta">
                 <span class="project-number">II</span>
-                <span class="project-role-tag">Full Stack + Product</span>
+                <span class="project-role-tag">SaaS Product</span>
               </div>
               <h3 class="project-title">BalanceIQ</h3>
               <p class="project-problem"><strong>The Problem:</strong> Users struggled to track debt, taxes, and spending in one unified view.</p>
@@ -130,12 +165,12 @@
           <div class="scroll-details-wrap">
             <div class="scroll-details">
               <div class="case-study-grid">
-                <div class="cs-block"><h4>Constraints</h4><p>Zero backend budget; required local storage and client-side logic only.</p></div>
-                <div class="cs-block"><h4>Key Decisions</h4><p>Prioritized a high-level dashboard over granular transaction logs to reduce cognitive load.</p></div>
-                <div class="cs-block"><h4>Outcome</h4><p>A responsive tool enabling informed financial decisions without data privacy risks.</p></div>
+                <div class="cs-block"><h4>Constraints</h4><p>Required secure, persistent user data and authentication with zero initial infrastructure cost.</p></div>
+                <div class="cs-block"><h4>Key Decisions</h4><p>Migrated from local storage to Supabase (PostgreSQL) to enable cross-device usage and user retention.</p></div>
+                <div class="cs-block"><h4>Outcome</h4><p>An active platform serving 20+ users with secure auth and 50+ weekly sessions.</p></div>
               </div>
               <div class="scroll-footer">
-                <span class="marginal-note">"User privacy can be a feature, not just a constraint."</span>
+                <span class="marginal-note">"Real data persistence turns a demo into a product."</span>
                 <a href="https://balance-iq-gamma.vercel.app/" target="_blank" class="project-link">View Live &rarr;</a>
               </div>
             </div>
@@ -337,6 +372,7 @@
                             <li>Python, Node, Java</li>
                             <li>Ruby on Rails</li>
                             <li>MySQL, PostgreSQL</li>
+                            <li>Supabase</li>
                             <li>MongoDB</li>
                         </ul>
                     </div>
@@ -413,6 +449,26 @@
                 </ul>
             </div>
         </section>
+
+        <!-- HIRE ME SECTION -->
+        <section id="hire">
+            <div class="container">
+                <span class="section-title"><span class="drop-cap">C</span>ommission</span>
+                <div class="hire-me-grid">
+                    <div class="hire-card">
+                        <h3>As a Product Manager</h3>
+                        <p>I focus on outcomes over outputs. I can help you find product-market fit, define your roadmap, and lead a team to execute on a clear vision by bridging the gap between users, business, and engineering.</p>
+                        <a href="cv.html" class="cta-button">View PM-Focused CV</a>
+                    </div>
+                    <div class="hire-card">
+                        <h3>As a Software Engineer</h3>
+                        <p>I build robust, scalable, and user-friendly web applications. With a strong product sense, I write code that not only works but also solves the right problems and contributes to a better overall user experience.</p>
+                        <a href="resume.html" class="cta-button">View Engineering Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- 9. CONTACT (SEND A RAVEN) -->
         <section id="contact" class="contact-section" aria-label="Send a Raven">
