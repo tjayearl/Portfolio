@@ -39,9 +39,6 @@
         <section id="home" class="hero">
             <div class="container">
                 <p class="identity-statement">The Manuscript Opens</p>
-                <p class="status-line">
-                    <i class="fas fa-circle" style="font-size: 0.6rem; margin-right: 5px;"></i> Currently open to opportunities
-                </p>
                 <h1 class="headline">I turn unclear problems into structured solutions.</h1>
                 <p class="subtext">I care about users, constraints, and outcomes.<br>Full Stack builder thinking in tradeoffs, not just features.</p>
                 <a href="#projects" class="cta-button">View Campaigns</a>
@@ -251,6 +248,41 @@
         </div>
       </div>
 
+      <!-- Educore -->
+      <div class="scroll-card" id="card-educore">
+        <div class="scroll-body">
+          <div class="scroll-preview" onclick="toggleCard('card-educore')" tabindex="0" role="button">
+            <div class="preview-left">
+              <div class="project-meta">
+                <span class="project-number">VI</span>
+                <span class="project-role-tag">LMS & Hybrid Database</span>
+              </div>
+              <h3 class="project-title">Educore</h3>
+              <p class="project-problem"><strong>The Problem:</strong> Creating a scalable LMS that handles both structured user data and highly flexible course content without performance bottlenecks.</p>
+            </div>
+            <div class="scroll-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="scroll-divider">
+            <div class="divider-line"></div>
+            <div class="wax-seal">✦</div>
+            <div class="divider-line"></div>
+          </div>
+          <div class="scroll-details-wrap">
+            <div class="scroll-details">
+              <div class="case-study-grid">
+                <div class="cs-block"><h4>Constraints</h4><p>Balancing ACID compliance for auth with the flexibility needed for dynamic lesson schemas.</p></div>
+                <div class="cs-block"><h4>Key Decisions</h4><p>Implemented a Hybrid Architecture: PostgreSQL for users/metadata and MongoDB for content/progress tracking.</p></div>
+                <div class="cs-block"><h4>Outcome</h4><p>Successful technical assessment project for KBC role; feature-complete LMS with distinct Learner and Admin portals.</p></div>
+              </div>
+              <div class="scroll-footer">
+                <span class="marginal-note">"Engineered for scale using a hybrid-database microservices strategy."</span>
+                <a href="https://educore-frontend-lovat.vercel.app/" target="_blank" class="project-link">View Live &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -258,16 +290,28 @@
         <!-- 6. EDUCATION SECTION (ACADEMIC CHRONICLE) -->
         <section id="education">
             <div class="container">
-                <span class="section-title"><span class="drop-cap">A</span>cademic Chronicle</span>
+                <span class="section-title"><span class="drop-cap">T</span>he Tome</span>
                 
                 <div class="education-timeline">
                     <!-- Item 1 -->
                     <div class="timeline-item">
                         <div class="timeline-marker">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">April 2026 – April 2027</span>
+                            <h3 class="timeline-institution">Kenya Broadcasting Corporation (KBC)</h3>
+                            <h4 class="timeline-degree">Software Developer Intern</h4>
+                            <span class="marginal-note">“Contributing to national digital infrastructure and broadcasting systems.”</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
                             <i class="fas fa-scroll"></i>
                         </div>
                         <div class="timeline-content">
-                            <span class="timeline-date">Nov 2025</span>
+                            <span class="timeline-date">Feb 2025 – Nov 2025</span>
                             <h3 class="timeline-institution">Moringa School</h3>
                             <h4 class="timeline-degree">Software Engineering Bootcamp</h4>
                             <span class="marginal-note">“Where I learned that code is just a tool for solving human problems.”</span>
@@ -280,7 +324,7 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="timeline-content">
-                            <span class="timeline-date">2024</span>
+                            <span class="timeline-date">Jan 2021 – Nov 2024</span>
                             <h3 class="timeline-institution">Weithaga Boys High School</h3>
                             <h4 class="timeline-degree">High School Diploma</h4>
                         </div>
